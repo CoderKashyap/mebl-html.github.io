@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Age Restriction | Mount Everest Breweries</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="stylesheet" href="css/global.css" />
+  <style>
+    html, body { height: 100%; }
+
+    .sorry-wrapper {
+      min-height: 100vh;
+      background-color: #ffffff;
+      font-family: var(--font-main);
+      display: flex;
+      flex-direction: column;
+      padding: 2.5rem 15rem;
+    }
+
+    .sorry-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 900px;
+    }
+
+    .sorry-logo-wrapper {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--primary-color);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+    }
+
+    .sorry-logo {
+      height: 80px;
+      width: auto;
+    }
+
+    .sorry-welcome {
+      font-size: 1.8rem;
+      color: #444444;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+
+    .sorry-greeting {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 4rem;
+    }
+
+    .sorry-message {
+      font-size: clamp(1.5rem, 4.5vw, 2rem);
+      font-weight: 700;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+    }
+
+    .sorry-footer {
+      margin-top: auto;
+      padding-top: 2rem;
+      font-size: 0.85rem;
+      color: #666666;
+    }
+
+    .sorry-footer a {
+      color: var(--primary-color);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 768px) {
+      .sorry-wrapper {
+        padding: 2rem 1.5rem;
+      }
+
+      .sorry-logo {
+        height: 60px;
+      }
+
+      .sorry-welcome {
+        font-size: 1.3rem;
+      }
+
+      .sorry-greeting {
+        margin-bottom: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="sorry-wrapper">
+  <div class="sorry-content">
+    <div class="sorry-logo-wrapper">
+      <img class="sorry-logo" src="img/logo.webp" alt="Mount Everest Breweries logo" />
+    </div>
+    <h1 class="sorry-welcome">Welcome to Mount Everest Breweries</h1>
+    <p class="sorry-greeting">Great to see you!</p>
+    <h2 class="sorry-message">Sorry, you must be of legal drinking age in your region to enter this website.</h2>
+  </div>
+  <div class="sorry-footer">
+    <span>You can view our privacy policy </span>
+    <a href="policies/privacy-policy.html">here</a>
+  </div>
+</div>
+
+</body>
+</html>

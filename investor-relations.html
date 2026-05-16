@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investor Relations – Mount Everest Breweries Limited</title>
+  <meta name="description" content="At Mount Everest Breweries, we don't just brew exceptional beer—we build enduring value." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <style>
+    /* Investor Relations specific styles */
+    .ir-spacer { height: 120px; background: var(--primary-color); }
+
+    .ir-contacts-wrapper {
+      display: flex;
+      padding: 3rem;
+      gap: 2rem;
+      color: var(--primary-color);
+      max-width: var(--screen-width-limit);
+      margin: 0 auto;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .ir-contact-item {
+      flex-basis: 30%;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      line-height: 2rem;
+    }
+
+    .ir-contact-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .ir-contact-desc {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      white-space: pre-line;
+    }
+
+    /* Annual report */
+    .ir-annual-wrapper {
+      display: flex;
+      padding: 3rem;
+      flex-direction: row;
+      gap: 4rem;
+      align-items: center;
+      max-width: var(--screen-width-limit);
+      margin: 0 auto;
+    }
+
+    .ir-annual-img {
+      flex-basis: 30%;
+      flex-shrink: 0;
+    }
+
+    .ir-annual-img img { width: 100%; }
+
+    .ir-annual-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .ir-annual-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .ir-annual-desc {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--primary-color);
+    }
+
+    /* Downloads */
+    .ir-download-bg { background: #f7f7f7; }
+
+    .ir-download-wrapper {
+      display: flex;
+      gap: 1rem;
+      padding: 3rem;
+      max-width: var(--screen-width-limit);
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    .ir-download-item {
+      display: flex;
+      flex-basis: 23%;
+      flex-shrink: 0;
+      flex-direction: column;
+      gap: 5rem;
+      justify-content: space-between;
+      color: var(--primary-color);
+      line-height: 2rem;
+      padding: 2rem;
+      background: white;
+      border-radius: 0.25rem;
+    }
+
+    .ir-download-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .ir-download-desc {
+      font-size: 0.825rem;
+      line-height: 1.4rem;
+      margin-top: auto;
+    }
+
+    .ir-download-section {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .ir-download-btn {
+      display: block;
+      text-align: center;
+      padding: 0.85rem 1rem;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.2s ease, color 0.2s ease;
+      text-decoration: none;
+    }
+
+    .ir-download-btn:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    @media screen and (max-width: 780px) {
+      .ir-contacts-wrapper { flex-direction: column; padding: 1.5rem; }
+      .ir-contact-item { flex-basis: 100%; }
+      .ir-annual-wrapper { flex-direction: column; padding: 1.5rem; gap: 1.5rem; }
+      .ir-download-wrapper { flex-direction: column; padding: 1.5rem; }
+      .ir-download-item { flex-basis: 100%; gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="navbar">
+  <header>
+    <nav class="nav-inner">
+      <ul class="nav-menu">
+        <div class="nav-half">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-dropdown">
+            <button class="nav-dropdown-btn">Meet Our Brews</button>
+            <ul class="nav-dropdown-menu">
+              <li><a href="products/stok.html">Stok</a></li>
+              <li><a href="products/lemount.html">Lemount</a></li>
+              <li><a href="products/mount-6000.html">Mount's 6000</a></li>
+              <li><a href="products/dabang.html">Dabang</a></li>
+            </ul>
+          </li>
+          <li><a href="media.html" class="nav-link">Media</a></li>
+        </div>
+        <div class="nav-half nav-half-right">
+          <li><a href="career.html" class="nav-link">Career</a></li>
+          <li><a href="investor-relations.html" class="nav-link">Investor Relations</a></li>
+          <li><a href="about-us.html" class="nav-link">About us</a></li>
+        </div>
+      </ul>
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="img/logo.webp" alt="Mount Everest Breweries logo" />
+        </a>
+      </div>
+      <div class="hamburger" aria-label="Toggle menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+</div>
+
+<main>
+  <div class="ir-spacer"></div>
+
+  <!-- Heading -->
+  <div class="section-heading">
+    <h2>Investor Relations</h2>
+    <p>At Mount Everest Breweries, we don't just brew exceptional beer—we build enduring value. This section offers a clear view of our financial health, strategic milestones, and corporate governance. For those who invest in excellence, here's where the journey begins.</p>
+  </div>
+
+  <!-- Contacts -->
+  <section>
+    <div class="ir-contacts-wrapper">
+
+      <div class="ir-contact-item">
+        <p class="ir-contact-title">INVESTOR CONTACT</p>
+        <p class="ir-contact-desc">MOUNT EVEREST BREWERIES LIMITED
+4th Floor, BPK Star Tower,
+A.B. Road, Indore- 452008,
+Madhya Pradesh, India
+CIN: U15549MP1999PLC049379
+ISIN: INE0EV601015
+Email: investor@meblindia.com
+Tel.: (0731) – 4780400 / 490</p>
+      </div>
+
+      <div class="ir-contact-item">
+        <p class="ir-contact-title">REGISTRAR &amp; SHARE TRANSFER AGENT</p>
+        <p class="ir-contact-desc">MUFG INTIME INDIA PRIVATE LIMITED
+(Formerly known as Link Intime India Private Limited)
+C-101, 1st Floor, 247 Park,
+Lal Bahadur Shastri Marg,
+Vikhroli (West), Mumbai 400 083, Maharashtra, India
+E-mail: rnt.helpdesk@linkintime.co.in
+Tel.: (022) - 49186270</p>
+      </div>
+
+      <div class="ir-contact-item">
+        <p class="ir-contact-title">INVESTOR GRIEVANCE REDRESSAL</p>
+        <p class="ir-contact-desc">Mr. Sanjay Kumar Tibrewal
+(Whole Time Director &amp; CFO)
+
+Mr. Chaitanya Zaveri
+(Company Secretary &amp; Compliance Officer)
+
+Email: investor@meblindia.com
+Tel.: (0731) – 4780400 / 490</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Annual Report -->
+  <section>
+    <div class="ir-annual-wrapper">
+      <div class="ir-annual-img">
+        <img src="img/annual-report.png" alt="Annual Report 2024-25" />
+      </div>
+      <div class="ir-annual-info">
+        <p class="ir-annual-title">Annual Report 2024-25</p>
+        <p class="ir-annual-desc">A comprehensive overview of our performance, strategy, and impact. The Annual Report reflects our commitment to excellence, transparency, and shareholder value creation.</p>
+        <a href="img/annual-report.png" class="ir-download-btn" download>DOWNLOAD</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Downloads -->
+  <div class="ir-download-bg">
+    <div class="ir-download-wrapper">
+
+      <div class="ir-download-item">
+        <p class="ir-download-title">Board of Directors</p>
+        <div class="ir-download-section">
+          <p class="ir-download-desc">Meet the seasoned leadership steering our vision. Our Board brings together diverse industry expertise and strategic foresight to drive sustainable growth and long-term value.</p>
+          <a href="img/30-ten-7-1-.png" class="ir-download-btn" download>DOWNLOAD</a>
+        </div>
+      </div>
+
+      <div class="ir-download-item">
+        <p class="ir-download-title">Annual Return</p>
+        <div class="ir-download-section">
+          <p class="ir-download-desc">An official record of our corporate structure, filed annually in compliance with regulatory requirements. It outlines key company information for stakeholders and regulators.</p>
+          <a href="img/a-beer-brewery-on-the-factory-alcohole-production-2025-01-27-01-22-56-utc.jpg" class="ir-download-btn" download>DOWNLOAD</a>
+        </div>
+      </div>
+
+      <div class="ir-download-item">
+        <p class="ir-download-title">Financial Results / Statements</p>
+        <div class="ir-download-section">
+          <p class="ir-download-desc">Get detailed insights into our financial performance. These audited statements reflect our fiscal discipline, operational resilience, and growth trajectory.</p>
+          <a href="img/a-beer-brewery-on-the-factory-alcohole-production-2025-01-27-01-22-56-utc.jpg" class="ir-download-btn" download>DOWNLOAD</a>
+        </div>
+      </div>
+
+      <div class="ir-download-item">
+        <p class="ir-download-title">Policies</p>
+        <div class="ir-download-section">
+          <p class="ir-download-desc">Our governance policies uphold integrity, compliance, and ethical conduct across the organization—ensuring accountability and responsible business practices at every level.</p>
+          <a href="img/a-beer-brewery-on-the-factory-alcohole-production-2025-01-27-01-22-56-utc.jpg" class="ir-download-btn" download>DOWNLOAD</a>
+        </div>
+      </div>
+
+      <div class="ir-download-item">
+        <p class="ir-download-title">Subsidiary Company</p>
+        <div class="ir-download-section">
+          <p class="ir-download-desc">Explore our portfolio of subsidiary companies, each playing a strategic role in our expansion, innovation, and presence across domestic and international markets.</p>
+          <a href="img/30-ten-7-1-.png" class="ir-download-btn" download>DOWNLOAD</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="img/logo-mneumonic.webp" alt="MEBL logo" /></div>
+        <img class="footer-mobile-logo" src="img/logo.webp" alt="MEBL logo" />
+        <div class="footer-name-msg">
+          <div class="footer-company-name">Mount Everest Breweries Limited</div>
+          <div class="footer-message">Thanks for stopping by our corner of the internet!<br />Whether you're here to sip, savor, or join our brewing journey, we're excited to have you along.</div>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/company/mount-everest-breweries-limited/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <nav><ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#meet-our-beers">Meet Our Brews</a></li>
+          <li><a href="career.html">Careers</a></li>
+          <li><a href="media.html">Media</a></li>
+          <li><a href="investor-relations.html">Investor Relations</a></li>
+          <li><a href="about-us.html">About us</a></li>
+        </ul></nav>
+      </div>
+      <div class="footer-contact">
+        <div class="footer-contact-item">
+          <img src="icons/phone.svg" alt="phone" /><span>0731-4780400/500</span>
+        </div>
+        <div class="footer-contact-item">
+          <img src="icons/location.svg" alt="address" />
+          <span>4th Floor BPK Star Tower,<br />Above Shoppers Stop,<br />AB Road, Indore – 452008.</span>
+        </div>
+      </div>
+      <div class="footer-mobile-socials">
+        <a href="https://www.linkedin.com/company/mount-everest-breweries-limited/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="policies/privacy-policy.html">Privacy Policy</a>
+      <a href="policies/terms.html">Terms of use</a>
+      <div class="footer-copyright">© 2026–Present Mount Everest Breweries LTD. All Rights Reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

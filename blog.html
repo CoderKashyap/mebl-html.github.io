@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog – Mount Everest Breweries Limited</title>
+  <meta name="description" content="Read the latest articles and stories from Mount Everest Breweries." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/blog.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="navbar">
+  <header>
+    <nav class="nav-inner">
+      <ul class="nav-menu">
+        <div class="nav-half">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-dropdown">
+            <button class="nav-dropdown-btn">Meet Our Brews</button>
+            <ul class="nav-dropdown-menu">
+              <li><a href="products/stok.html">Stok</a></li>
+              <li><a href="products/lemount.html">Lemount</a></li>
+              <li><a href="products/mount-6000.html">Mount's 6000</a></li>
+              <li><a href="products/dabang.html">Dabang</a></li>
+            </ul>
+          </li>
+          <li><a href="media.html" class="nav-link">Media</a></li>
+        </div>
+        <div class="nav-half nav-half-right">
+          <li><a href="career.html" class="nav-link">Career</a></li>
+          <li><a href="investor-relations.html" class="nav-link">Investor Relations</a></li>
+          <li><a href="about-us.html" class="nav-link">About us</a></li>
+        </div>
+      </ul>
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="img/logo.webp" alt="Mount Everest Breweries logo" />
+        </a>
+      </div>
+      <div class="hamburger" aria-label="Toggle menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+</div>
+
+<main>
+  <div class="page-spacer" style="height:110px;background:var(--primary-color)"></div>
+
+  <div class="blog-listing-bg">
+    <div class="blog-listing-wrapper">
+
+      <!-- Search -->
+      <div class="search-wrapper">
+        <div class="search-box">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" class="search-input" id="blogSearch" placeholder="Search articles..." aria-label="Search blog articles" />
+          <button class="clear-btn" id="clearSearch" aria-label="Clear search" style="display:none">&#x2715;</button>
+        </div>
+        <p class="result-count" id="resultCount"></p>
+      </div>
+
+      <!-- Blog cards -->
+      <div class="blog-cards" id="blogCards">
+
+        <div class="blog-card" data-title="Why Beer Flavour Feels Different in the Monsoon" data-author="Dixsain" data-date="24 October, 2025">
+          <div class="blog-card-image-wrapper">
+            <img class="blog-card-image" src="img/award-.webp" alt="Why Beer Flavour Feels Different in the Monsoon" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span>24 October, 2025</span>
+              <span>By Dixsain</span>
+            </div>
+            <p class="blog-card-title">Why Beer Flavour Feels Different in the Monsoon</p>
+            <p class="blog-card-excerpt">Discover how humidity, aroma, carbonation, and brewing conditions make your favourite beer taste smoother, richer, and more expressive during the rainy season.</p>
+            <a class="blog-card-link" href="blog-detail.html?id=why-beer-flavour-feels-different-in-the-monsoon">Read More <span>&#8594;</span></a>
+          </div>
+        </div>
+
+        <div class="blog-card" data-title="Why Beer Flavour Feels Different in the Monsoon" data-author="Dixsain" data-date="24 October, 2025">
+          <div class="blog-card-image-wrapper">
+            <img class="blog-card-image" src="img/award-.webp" alt="Why Beer Flavour Feels Different in the Monsoon" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span>24 October, 2025</span>
+              <span>By Dixsain</span>
+            </div>
+            <p class="blog-card-title">Why Beer Flavour Feels Different in the Monsoon</p>
+            <p class="blog-card-excerpt">Explore the science behind monsoon sipping and why changing weather can subtly reshape beer flavour, texture, and the overall drinking experience.</p>
+            <a class="blog-card-link" href="blog-detail.html?id=why-beer-flavour-feels-different-in-the-monsoon-two">Read More <span>&#8594;</span></a>
+          </div>
+        </div>
+
+        <div class="blog-card" data-title="Why Beer Flavour Feels Different in the Monsoon" data-author="Dixsain" data-date="24 October, 2025">
+          <div class="blog-card-image-wrapper">
+            <img class="blog-card-image" src="img/award-.webp" alt="Why Beer Flavour Feels Different in the Monsoon" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span>24 October, 2025</span>
+              <span>By Dixsain</span>
+            </div>
+            <p class="blog-card-title">Why Beer Flavour Feels Different in the Monsoon</p>
+            <p class="blog-card-excerpt">From denser air to softened bitterness, this article unpacks how the monsoon transforms each pint into a fuller, moodier, more memorable sip.</p>
+            <a class="blog-card-link" href="blog-detail.html?id=why-beer-flavour-feels-different-in-the-monsoon-three">Read More <span>&#8594;</span></a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- No results -->
+      <div class="no-results" id="noResults" style="display:none">
+        <p>No articles match your search.</p>
+        <button class="reset-btn" id="resetSearch">Clear Search</button>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="img/logo-mneumonic.webp" alt="MEBL logo" />
+        </div>
+        <img class="footer-mobile-logo" src="img/logo.webp" alt="MEBL logo" />
+        <div class="footer-name-msg">
+          <div class="footer-company-name">Mount Everest Breweries Limited</div>
+          <div class="footer-message">Thanks for stopping by our corner of the internet!<br />Whether you're here to sip, savor, or join our brewing journey, we're excited to have you along.</div>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/company/mount-everest-breweries-limited/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <nav><ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#meet-our-beers">Meet Our Brews</a></li>
+          <li><a href="career.html">Careers</a></li>
+          <li><a href="media.html">Media</a></li>
+          <li><a href="investor-relations.html">Investor Relations</a></li>
+          <li><a href="about-us.html">About us</a></li>
+        </ul></nav>
+      </div>
+      <div class="footer-contact">
+        <div class="footer-contact-item">
+          <img src="icons/phone.svg" alt="phone" />
+          <span>0731-4780400/500</span>
+        </div>
+        <div class="footer-contact-item">
+          <img src="icons/location.svg" alt="address" />
+          <span>4th Floor BPK Star Tower,<br />Above Shoppers Stop,<br />AB Road,<br />Indore – 452008.</span>
+        </div>
+      </div>
+      <div class="footer-mobile-socials">
+        <a href="https://www.linkedin.com/company/mount-everest-breweries-limited/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="policies/privacy-policy.html">Privacy Policy</a>
+      <a href="policies/terms.html">Terms of use</a>
+      <div class="footer-copyright">© 2026–Present Mount Everest Breweries LTD. All Rights Reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/blog.js"></script>
+</body>
+</html>

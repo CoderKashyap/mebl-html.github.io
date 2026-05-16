@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Age Verification – Mount Everest Breweries Limited</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <style>
+    body { overflow: hidden; }
+
+    .age-wrapper {
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+      font-family: var(--font-main);
+    }
+
+    .age-video {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .age-content {
+      width: 400px;
+      max-width: 90vw;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 2rem;
+      border-radius: 1rem;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(5px);
+    }
+
+    .age-logo {
+      height: 180px;
+      object-fit: contain;
+      padding-bottom: 1.5rem;
+    }
+
+    .age-title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .age-description {
+      text-align: center;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .age-select-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .age-select-wrapper::after {
+      content: '';
+      pointer-events: none;
+      width: 60px;
+      height: 60px;
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' height='10px' width='15px'%3E%3Ctext x='0' y='10' fill='white'%3E%E2%96%BE%3C/text%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: 1.5em 1em;
+      background-position: right center;
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+    }
+
+    .age-select {
+      appearance: none;
+      background-color: transparent;
+      color: white;
+      padding: 1rem;
+      width: 100%;
+      border: 1px solid white;
+      font-size: 1rem;
+    }
+
+    .age-select option {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .age-btn {
+      width: 100%;
+      background-color: white;
+      padding: 1rem;
+      border: 1px solid white;
+      color: black;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      transition: all 0.15s ease;
+      font-family: var(--font-main);
+    }
+
+    .age-btn:hover {
+      background-color: transparent;
+      color: white;
+    }
+
+    .age-consent {
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      line-height: 1.7;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+
+<div class="age-wrapper">
+  <video class="age-video" autoplay muted loop playsinline>
+    <source src="img/age-verification-bg.mp4" type="video/mp4" />
+  </video>
+
+  <div class="age-content">
+    <img class="age-logo" src="img/logo.webp" alt="Mount Everest Breweries logo" />
+    <p class="age-title">Welcome</p>
+    <p class="age-description">You have to be over 21 to enter this site.<br />Please enter your year of birth. (YYYY)</p>
+
+    <div class="age-select-wrapper">
+      <select class="age-select" id="yearSelect" aria-label="Year of birth"></select>
+    </div>
+
+    <button class="age-btn" id="submitBtn">SUBMIT</button>
+
+    <p class="age-consent">By entering this site, you are agreeing to our Terms &amp; Conditions and Privacy Policy.<br />Please do not share or forward to anyone underage. ©2024 MEBL. All rights reserved.</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  const select = document.getElementById('yearSelect');
+  const btn = document.getElementById('submitBtn');
+  const currentYear = new Date().getFullYear();
+
+  for (let y = currentYear; y >= 1900; y--) {
+    const opt = document.createElement('option');
+    opt.value = y;
+    opt.textContent = y;
+    select.appendChild(opt);
+  }
+
+  btn.addEventListener('click', () => {
+    const selectedYear = parseInt(select.value, 10);
+    const age = currentYear - selectedYear;
+    if (age >= 21) {
+      localStorage.setItem('verification', 'true');
+      window.location.href = 'index.html';
+    } else {
+      localStorage.removeItem('verification');
+      window.location.href = 'age-restriction.html';
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

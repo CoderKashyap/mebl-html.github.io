@@ -1,0 +1,213 @@
+/* ============================================================
+   MEBL – Header / Navigation
+   ============================================================ */
+
+#navbar {
+  position: fixed;
+  width: 100%;
+  padding: 0 20px;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  height: 110px;
+  font-size: 1rem;
+  transition: all 0.5s ease-in-out;
+  top: 0;
+
+  display: flex;
+  align-items: normal;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#navbar.transparent {
+  background-color: transparent;
+  backdrop-filter: none;
+}
+
+#navbar.hide {
+  top: -120px;
+}
+
+.nav-inner {
+  max-width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  color: white;
+  height: 100%;
+  margin: 0 auto;
+  font-family: var(--font-main);
+  font-weight: 600;
+}
+
+/* -- Logo ------------------------------------------ */
+.nav-logo {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.nav-logo img {
+  height: 80px;
+}
+
+/* -- Nav menu -------------------------------------- */
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-half {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 40px;
+}
+
+.nav-half-right {
+  justify-content: flex-end;
+}
+
+.nav-link {
+  color: white;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--secondary-color);
+}
+
+/* -- Dropdown "Meet Our Brews" --------------------- */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: var(--font-main);
+  padding: 0;
+}
+
+.nav-dropdown-btn:hover {
+  color: var(--secondary-color);
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  min-width: 200px;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  list-style: none;
+  z-index: 100;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown-menu.open {
+  display: flex;
+}
+
+.nav-dropdown-menu li a {
+  color: white;
+  font-size: 0.95rem;
+  display: block;
+}
+
+.nav-dropdown-menu li a:hover {
+  color: var(--secondary-color);
+}
+
+/* -- Hamburger (mobile) ----------------------------- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  margin-left: auto;
+  z-index: 10;
+}
+
+.hamburger .bar {
+  width: 22px;
+  height: 2px;
+  background: white;
+  transition: 0.3s ease-in-out;
+  display: block;
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* -- Mobile ---------------------------------------- */
+@media screen and (max-width: 780px) {
+  .nav-logo {
+    left: 1.5rem;
+    transform: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    flex-direction: column;
+    gap: 0;
+    left: 0;
+    top: -420px;
+    width: 100%;
+    visibility: hidden;
+    transition: 0.5s ease-in-out;
+    text-align: center;
+  }
+
+  .nav-menu.active {
+    top: 118px;
+    visibility: visible;
+  }
+
+  .nav-half {
+    flex-direction: column;
+    gap: 0;
+    background: rgba(0, 0, 0, 0.9);
+    /* padding: 1rem 0; */
+  }
+
+  .nav-half li {
+    margin: 14px 0;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    display: none !important;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .nav-dropdown.mobile-open .nav-dropdown-menu {
+    display: flex !important;
+  }
+}

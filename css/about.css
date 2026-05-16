@@ -1,0 +1,302 @@
+/* ============================================================
+   MEBL – About Us Styles
+   ============================================================ */
+
+.page-spacer {
+  height: 110px;
+  background: var(--primary-color);
+}
+
+/* -- Text+BG Section --------------------------------------- */
+.text-bg-section {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.text-bg-section.bg-right {
+  background-size: contain;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+.text-bg-section.bg-right::before {
+  background: transparent;
+}
+
+.text-bg-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(16,65,97,0.6);
+}
+
+.text-bg-section.light-overlay::before {
+  background: rgba(255,255,255,0.85);
+}
+
+.text-bg-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  padding: 5rem 4rem;
+  max-width: var(--screen-width-limit);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.text-bg-section.light-overlay .text-bg-content {
+  color: var(--primary-color);
+}
+
+.text-bg-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.text-bg-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+}
+
+.text-bg-desc {
+  font-size: 1rem;
+  line-height: 1.85;
+  max-width: 560px;
+}
+
+/* -- Text + Image Side ------------------------------------ */
+.text-image-section {
+  padding: 5rem 4rem;
+  max-width: var(--screen-width-limit);
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  color: var(--primary-color);
+}
+
+.text-image-text {
+  flex: 1;
+}
+
+.text-image-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.text-image-title {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.text-image-desc {
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.text-image-img {
+  flex-basis: 40%;
+  flex-shrink: 0;
+}
+
+.text-image-img img {
+  width: 100%;
+  object-fit: contain;
+}
+
+/* -- Timeline -------------------------------------------- */
+.timeline-section {
+  background: var(--primary-color);
+  padding: 5rem 2rem;
+  color: white;
+}
+
+.timeline-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timeline-header h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.timeline-header p {
+  font-size: 1rem;
+  line-height: 1.8;
+  opacity: 0.85;
+  white-space: pre-line;
+}
+
+.timeline-list {
+  max-width: var(--screen-width-limit);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.timeline-list::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255,255,255,0.2);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  padding: 3rem 0;
+  position: relative;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--secondary-color);
+  z-index: 1;
+}
+
+.timeline-content {
+  flex: 1;
+  text-align: right;
+  padding-right: 4rem;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  text-align: left;
+  padding-right: 0;
+  padding-left: 4rem;
+}
+
+.timeline-year {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.timeline-desc {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  opacity: 0.85;
+}
+
+.timeline-img {
+  flex: 1;
+  padding-left: 4rem;
+}
+
+.timeline-item:nth-child(even) .timeline-img {
+  padding-left: 0;
+  padding-right: 4rem;
+}
+
+.timeline-img img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* -- Markets Map ----------------------------------------- */
+.markets-section {
+  padding: 5rem 2rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.markets-section h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.markets-section p {
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.markets-section img {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* -- Responsive ------------------------------------------ */
+@media screen and (max-width: 780px) {
+  .text-bg-content { padding: 4rem 1.5rem; }
+  .text-bg-title { font-size: 1.5rem; }
+
+  .text-image-section {
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .timeline-list::before { display: none; }
+
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    flex-direction: column;
+    padding: 2rem 0;
+    gap: 1.5rem;
+  }
+
+  .timeline-item::before { display: none; }
+
+  .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    text-align: left;
+    padding: 0 1.5rem;
+  }
+
+  .timeline-img,
+  .timeline-item:nth-child(even) .timeline-img {
+    padding: 0 1.5rem;
+  }
+}

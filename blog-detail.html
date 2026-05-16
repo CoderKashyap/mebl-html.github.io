@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog – Mount Everest Breweries Limited</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/blog-detail.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="navbar">
+  <header>
+    <nav class="nav-inner">
+      <ul class="nav-menu">
+        <div class="nav-half">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-dropdown">
+            <button class="nav-dropdown-btn">Meet Our Brews</button>
+            <ul class="nav-dropdown-menu">
+              <li><a href="products/stok.html">Stok</a></li>
+              <li><a href="products/lemount.html">Lemount</a></li>
+              <li><a href="products/mount-6000.html">Mount's 6000</a></li>
+              <li><a href="products/dabang.html">Dabang</a></li>
+            </ul>
+          </li>
+          <li><a href="media.html" class="nav-link">Media</a></li>
+        </div>
+        <div class="nav-half nav-half-right">
+          <li><a href="career.html" class="nav-link">Career</a></li>
+          <li><a href="investor-relations.html" class="nav-link">Investor Relations</a></li>
+          <li><a href="about-us.html" class="nav-link">About us</a></li>
+        </div>
+      </ul>
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="img/logo.webp" alt="Mount Everest Breweries logo" />
+        </a>
+      </div>
+      <div class="hamburger" aria-label="Toggle menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+</div>
+
+<main>
+  <!-- Page spacer (for fixed navbar) -->
+  <div style="height:110px;background:#fff"></div>
+
+  <article class="blog-article" id="blogArticle">
+    <!-- Hero image -->
+    <div class="blog-hero" id="blogHero" style="display:none">
+      <img class="blog-hero-img" id="blogHeroImg" src="" alt="" />
+    </div>
+
+    <div class="blog-container">
+      <a href="blog.html" class="back-link">&#8592; Back to Blog</a>
+
+      <header class="blog-header">
+        <span class="blog-community" id="blogCommunity" style="display:none"></span>
+        <h1 class="blog-title" id="blogTitle">Loading…</h1>
+        <div class="blog-meta" id="blogMeta"></div>
+        <div class="blog-divider"></div>
+      </header>
+
+      <div class="blog-content-layout">
+        <!-- TOC -->
+        <aside class="blog-toc-sidebar" id="tocSidebar" style="display:none">
+          <nav class="blog-toc" aria-label="Table of contents">
+            <p class="blog-toc-label">Key Points</p>
+            <div class="blog-toc-list" id="tocList"></div>
+          </nav>
+        </aside>
+
+        <!-- Body -->
+        <div class="blog-body" id="blogBody"></div>
+      </div>
+    </div>
+  </article>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="img/logo-mneumonic.webp" alt="MEBL logo" />
+        </div>
+        <img class="footer-mobile-logo" src="img/logo.webp" alt="MEBL logo" />
+        <div class="footer-name-msg">
+          <div class="footer-company-name">Mount Everest Breweries Limited</div>
+          <div class="footer-message">Thanks for stopping by our corner of the internet!<br />Whether you're here to sip, savor, or join our brewing journey, we're excited to have you along.</div>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/company/mount-everest-breweries-limited/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <nav><ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#meet-our-beers">Meet Our Brews</a></li>
+          <li><a href="career.html">Careers</a></li>
+          <li><a href="media.html">Media</a></li>
+          <li><a href="investor-relations.html">Investor Relations</a></li>
+          <li><a href="about-us.html">About us</a></li>
+        </ul></nav>
+      </div>
+      <div class="footer-contact">
+        <div class="footer-contact-item">
+          <img src="icons/phone.svg" alt="phone" />
+          <span>0731-4780400/500</span>
+        </div>
+        <div class="footer-contact-item">
+          <img src="icons/location.svg" alt="address" />
+          <span>4th Floor BPK Star Tower,<br />Above Shoppers Stop,<br />AB Road,<br />Indore – 452008.</span>
+        </div>
+      </div>
+      <div class="footer-mobile-socials">
+        <a href="https://www.linkedin.com/company/mount-everest-breweries-limited/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="policies/privacy-policy.html">Privacy Policy</a>
+      <a href="policies/terms.html">Terms of use</a>
+      <div class="footer-copyright">© 2026–Present Mount Everest Breweries LTD. All Rights Reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+/* ── Blog data ─────────────────────────────────────────────────
+   In WordPress: replace this object with a PHP-rendered JSON or
+   use the WP REST API to fetch post data dynamically.
+──────────────────────────────────────────────────────────────── */
+var BLOG_DATA = {
+  "why-beer-flavour-feels-different-in-the-monsoon": {
+    title: "Why Beer Flavour Feels Different in the Monsoon",
+    author: "Dixsain",
+    date: "24 October, 2025",
+    readtime: 5,
+    banner_image: "img/c2.webp",
+    sections: [
+      {
+        content: `Monsoon often acts like a bittersweet symphony in our lives, offering notes that make you both question the rhythm and embrace it. While on one hand it sends our daily lives into a frenzy, on the other hand, it enhances our taste buds and experience. This brings a subtle shift in the way we eat, drink, and even taste. For many, it's also the time to enjoy a drink that feels both comforting and refreshing. Many will swear that hot chai feels different when sipped during a downpour, or that spicy food sings louder when it's damp outside. Beer is no exception to the laws of nature. But did you know that the rains don't just set the mood for drinking; they shape the very character of your pint? Let's take a deep dive to understand how monsoon shapes your favourite pint's flavour.
+
+The Weather in the Glass
+
+Monsoon humidity directly interacts with how we perceive flavour. Beer, by its very nature, is an aromatic drink and a culmination of flavours. Malt releases nutty sweetness, hops layer fruit, pine, and yeast add subtle spice or fruit notes. Air during the monsoon locks in moisture, not allowing the aroma to evaporate as fast. Hence, each sip feels more involved.
+
+Carbonation is no exception to the impact of humid air. Denser air allows the bubbles to not break away and disappear as quickly, often giving the beer a softer, slightly creamier mouthfeel. That's why a familiar brew may taste comfortingly richer and smoother in August than it did in April.
+
+To be or Not to be
+
+A beer is a culmination of grains, hops, yeast, and water. Grains like barley and wheat are sensitive to moisture. Humidity due to the monsoon can affect the starch content of these grains, influencing how they ferment into sugars. Likewise, yeast is no stranger to the impact of the monsoon. Excessive humidity and warmth can create a breeding ground for microbes, spoiling the beer. Hence, in earlier centuries, brewers in humid regions had to adapt their recipes, creating sturdier, fuller-bodied beers that resisted spoilage better than light and delicate ones.
+
+If yeast brings alcohol to the party, hops bring aroma and balance. Hops are flowers, and hence their oils and acids are sensitive to climate. The moisture in storage and transport can dull hop freshness. That's why beers consumed in the monsoon sometimes feel softer on bitterness and slightly muted on aroma.
+
+The Monsoon Sip
+
+Beyond brewing science, the monsoon also changes how we experience beer. Summer drinking is about chilled lagers on hot afternoons, often with light snacks. However, the monsoon changes how we function daily. Rain slows us down. Travel becomes hesitant, evenings are spent cocooned indoors, and leisure takes precedence over haste. Beer complements this rhythm beautifully. In such a case, drinking becomes less about quenching thirst and more about settling in and enjoying some time to yourself.
+
+A Toast to Weather and Wonder
+
+Ultimately, the beauty of the monsoon lies in how it makes us feel utterly present in our surroundings. Beer, when enjoyed in this season, mirrors that presence. It is altered by the atmospheric density, enriched by our heightened sense of smell, and contextualized by centuries of brewing tradition shaped by climates like this one.
+
+The monsoon may drape the world in grey, but in a beer glass, it creates layers of science, flavour, and lifestyle. In that sense, every sip in the rainy season is more than refreshment. It is a story of weather, memory, and mood.
+
+(This article has been drafted by Ms. Shatbhi Basu, Independent Director, Mount Everest Breweries Ltd. Ms. Basu is regarded as India's first female mixologist.)`,
+        image: "img/award-.webp"
+      }
+    ]
+  },
+  "why-beer-flavour-feels-different-in-the-monsoon-two": {
+    title: "Why Beer Flavour Feels Different in the Monsoon",
+    author: "Dixsain",
+    date: "24 October, 2025",
+    readtime: 5,
+    banner_image: "img/c2.webp",
+    sections: [{ content: `Monsoon often acts like a bittersweet symphony in our lives...`, image: "img/award-.webp" }]
+  },
+  "why-beer-flavour-feels-different-in-the-monsoon-three": {
+    title: "Why Beer Flavour Feels Different in the Monsoon",
+    author: "Dixsain",
+    date: "24 October, 2025",
+    readtime: 5,
+    banner_image: "img/c2.webp",
+    sections: [{ content: `Monsoon often acts like a bittersweet symphony in our lives...`, image: "img/award-.webp" }]
+  }
+};
+
+(function () {
+  'use strict';
+
+  /* -- Helpers ----------------------------------------- */
+  function isSubHeading(line) {
+    var t = line.trim();
+    if (!t || t.length > 65) return false;
+    if (t.startsWith('(')) return false;
+    if (/[.,!?]$/.test(t)) return false;
+    if (t.split(/\s+/).length > 10) return false;
+    if (!/^[A-Z0-9"']/.test(t)) return false;
+    return true;
+  }
+
+  function slugify(str) {
+    return str.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+  }
+
+  function renderContent(content, sectionIndex) {
+    if (!content) return '';
+    var headingIndex = 0;
+    return content.split('\n').reduce(function (html, line) {
+      var t = line.trim();
+      if (!t) return html;
+      if (isSubHeading(t)) {
+        var id = slugify(t) + '-' + sectionIndex + '-' + headingIndex;
+        headingIndex++;
+        return html + '<h2 class="blog-section-heading" id="' + id + '">' + t + '</h2>';
+      }
+      return html + '<p class="blog-paragraph">' + t + '</p>';
+    }, '');
+  }
+
+  function extractHeadings(sections) {
+    var headings = [];
+    sections.forEach(function (section, si) {
+      if (!section.content) return;
+      var hi = 0;
+      section.content.split('\n').forEach(function (line) {
+        var t = line.trim();
+        if (!isSubHeading(t)) return;
+        headings.push({ id: slugify(t) + '-' + si + '-' + hi, label: t });
+        hi++;
+      });
+    });
+    return headings;
+  }
+
+  /* -- Render ------------------------------------------ */
+  document.addEventListener('DOMContentLoaded', function () {
+    var params = new URLSearchParams(window.location.search);
+    var id = params.get('id');
+    var blog = BLOG_DATA[id];
+
+    if (!blog) {
+      document.getElementById('blogTitle').textContent = 'Article not found.';
+      return;
+    }
+
+    document.title = blog.title + ' – Mount Everest Breweries Limited';
+
+    /* hero */
+    if (blog.banner_image) {
+      var heroEl = document.getElementById('blogHero');
+      heroEl.style.display = '';
+      document.getElementById('blogHeroImg').src = blog.banner_image;
+      document.getElementById('blogHeroImg').alt = blog.title;
+    }
+
+    /* community */
+    if (blog.community) {
+      var comm = document.getElementById('blogCommunity');
+      comm.style.display = '';
+      comm.textContent = blog.community;
+    }
+
+    /* title */
+    document.getElementById('blogTitle').textContent = blog.title;
+
+    /* meta */
+    var isUrl = blog.author && blog.author.startsWith('http');
+    var authorDisplay = blog.author;
+    if (isUrl) {
+      try { authorDisplay = new URL(blog.author).hostname.replace('www.', ''); } catch(e) {}
+    }
+    var meta = '';
+    if (blog.readtime) meta += '<span class="blog-readtime">' + blog.readtime + ' min read</span><span class="blog-dot">·</span>';
+    if (blog.date) meta += '<time class="blog-date">' + blog.date + '</time><span class="blog-dot">·</span>';
+    if (authorDisplay) {
+      meta += '<span class="blog-author">' + (isUrl ? 'Source: ' : 'By ');
+      if (isUrl) {
+        meta += '<a href="' + blog.author + '" target="_blank" rel="noopener noreferrer">' + authorDisplay + '</a>';
+      } else {
+        meta += authorDisplay;
+      }
+      meta += '</span>';
+    }
+    document.getElementById('blogMeta').innerHTML = meta;
+
+    /* TOC */
+    var headings = extractHeadings(blog.sections || []);
+    if (headings.length > 0) {
+      var tocSidebar = document.getElementById('tocSidebar');
+      tocSidebar.style.display = '';
+      var tocList = document.getElementById('tocList');
+      headings.forEach(function (h) {
+        var a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.className = 'blog-toc-link';
+        a.textContent = h.label;
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          var target = document.getElementById(h.id);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        tocList.appendChild(a);
+      });
+    }
+
+    /* Body */
+    var body = document.getElementById('blogBody');
+    (blog.sections || []).forEach(function (section, i) {
+      var sec = document.createElement('section');
+      sec.className = 'blog-section';
+
+      if (section.image) {
+        sec.innerHTML += '<figure class="blog-figure"><img class="blog-section-img" src="' + section.image + '" alt="' + blog.title + '" /></figure>';
+      }
+
+      var contentHtml = renderContent(section.content, i);
+      if (contentHtml) {
+        sec.innerHTML += '<div class="blog-content-text">' + contentHtml + '</div>';
+      }
+
+      var sourceUrl = section.link || (typeof section.link_label === 'string' && section.link_label.startsWith('http') ? section.link_label : null);
+      if (sourceUrl) {
+        var sourceLabel = typeof section.link_label === 'string' && !section.link_label.startsWith('http') ? section.link_label : 'Source';
+        sec.innerHTML += '<div class="blog-source-box"><span class="blog-source-label">' + sourceLabel + '</span><a href="' + sourceUrl + '" target="_blank" rel="noopener noreferrer" class="blog-source-link">' + sourceUrl + '</a></div>';
+      }
+
+      body.appendChild(sec);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

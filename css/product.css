@@ -1,0 +1,226 @@
+/* ============================================================
+   MEBL – Product Page Styles
+   ============================================================ */
+
+/* -- Variant section --------------------------------------- */
+.product-variant {
+  background-position: center;
+  background-size: cover;
+}
+
+.product-variant-inner {
+  max-width: var(--screen-width-limit);
+  margin: 0 auto;
+}
+
+/* Hero text area */
+.product-variant-hero {
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  padding: 5rem;
+}
+
+.product-variant.dark .product-variant-hero {
+  color: black;
+}
+
+/* Product image — hidden on desktop, shown on mobile */
+.product-variant-img {
+  display: none;
+  height: 600px;
+  object-fit: contain;
+  width: 100%;
+}
+
+/* Hero bottle — desktop only, absolutely fills the hero section from top */
+.product-hero-bottle {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  height: 100%;
+  width: auto;
+  max-width: 38vw;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 0;
+  display: block;
+}
+
+.product-variant-name {
+  font-size: 10rem;
+  font-weight: 900;
+  line-height: 1;
+  color: white;
+}
+
+.product-variant.dark .product-variant-name {
+  color: black;
+}
+
+.product-variant-desc {
+  max-width: min(33%, 400px);
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+/* Format options */
+.product-options {
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.product-variant.dark .product-options {
+  color: black;
+}
+
+.product-options-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.product-subcategories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.product-subcategories.cols-2 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Sub-category card */
+.subcategory-card {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  position: relative;
+}
+
+.product-variant.dark .subcategory-card {
+  color: black;
+}
+
+.subcategory-img {
+  height: 300px;
+  object-fit: contain;
+  width: 100%;
+  transition: transform 0.75s cubic-bezier(0.34, 1.6, 0.64, 1);
+}
+
+.subcategory-img.floating-bottle {
+  margin-top: 0;
+}
+
+.subcategory-volume {
+  font-size: 1rem;
+  margin-top: 1rem;
+  font-weight: 600;  
+  /* text-align: left; */
+}
+
+.subcategory-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  /* text-align: left; */
+}
+
+.subcategory-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.subcategory-ingredients {
+  display: flex;
+  justify-content: space-between;
+  /* margin-top: 0.5rem; */
+}
+
+.subcategory-ingredients-val {
+  text-align: right;
+  max-width: 55%;
+}
+
+/* -- Product gallery grid ---------------------------------- */
+.product-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+
+.product-gallery img, .product-gallery-dabang img {
+  width: 100%;
+  /* aspect-ratio: 4 / 3; */
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* -- Responsive -------------------------------------------- */
+@media screen and (max-width: 780px) {
+  .product-variant {
+    padding: 2.5rem;
+  }
+
+  .product-variant-hero {
+    height: auto;
+    padding: 0;
+    padding-top: 150px;
+    text-align: center;
+  }
+
+  .product-variant-img {
+    display: block;
+  }
+
+  .product-hero-bottle {
+    display: none;
+  }
+
+  .product-variant-name {
+    padding-top: 2rem;
+    font-size: 4rem;
+  }
+
+  .product-variant-desc {
+    max-width: 100%;
+  }
+
+  .product-options {
+    height: auto;
+    padding: 4rem 0 0 0;
+    /* text-align: center; */
+  }
+
+  .product-options-heading {
+    text-align: left;
+  }
+
+  .product-subcategories,
+  .product-subcategories.cols-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .product-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .subcategory-card {
+    padding: 2rem 2rem;
+  }
+}

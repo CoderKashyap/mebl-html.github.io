@@ -1,0 +1,221 @@
+/* ============================================================
+   MEBL – Blog / Media Listing Styles
+   ============================================================ */
+
+.blog-listing-bg {
+  background: #f2f2f2;
+}
+
+.blog-listing-wrapper {
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+  max-width: var(--screen-width-limit);
+  margin: 0 auto;
+}
+
+/* -- Search -------------------------------------------- */
+.search-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.search-box {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  color: #aaa;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.85rem 3rem 0.85rem 2.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 50px;
+  font-size: 1rem;
+  background: #fff;
+  color: var(--primary-color);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+  font-family: var(--font-main);
+}
+
+.search-input:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 4px rgba(248, 162, 79, 0.15);
+}
+
+.search-input::placeholder { color: #bbb; }
+
+.clear-btn {
+  position: absolute;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.clear-btn:hover { color: var(--primary-color); }
+
+.result-count {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+/* -- Cards grid ---------------------------------------- */
+.blog-cards {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 2rem;
+  padding-top: 1rem;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.blog-card {
+  flex-basis: 31%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.14);
+}
+
+.blog-card-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.blog-card:hover .blog-card-image { transform: scale(1.06); }
+
+.blog-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.1rem 1.25rem 1.4rem;
+  flex: 1;
+}
+
+.blog-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #999;
+  font-weight: 500;
+}
+
+.blog-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--primary-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-card-excerpt {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #666;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  margin-top: auto;
+  transition: gap 0.2s ease;
+  text-decoration: none;
+}
+
+.blog-card-link:hover { gap: 0.65rem; }
+
+/* -- No results ---------------------------------------- */
+.no-results {
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: #888;
+  font-size: 1rem;
+}
+
+.reset-btn {
+  background: none;
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  font-family: var(--font-main);
+}
+
+.reset-btn:hover {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+/* -- Responsive ---------------------------------------- */
+@media screen and (max-width: 780px) {
+  .blog-listing-wrapper { padding: 2.5rem 1.5rem; }
+  .blog-card { flex-basis: calc(50% - 1rem); }
+}
+
+@media screen and (max-width: 480px) {
+  .blog-card { flex-basis: 100%; }
+}
