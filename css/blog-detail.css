@@ -226,6 +226,13 @@
 
 .blog-source-link:hover { text-decoration: underline; }
 
+/* -- No-TOC: keep body in right column even without sidebar -- */
+@media screen and (min-width: 781px) {
+  .blog-content-layout.no-toc .blog-body {
+    grid-column: 2 / -1;
+  }
+}
+
 /* -- Responsive ---------------------------------------- */
 @media screen and (max-width: 780px) {
   .blog-hero { height: 42vh; min-height: 220px; }

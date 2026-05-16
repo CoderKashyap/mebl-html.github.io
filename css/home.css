@@ -379,6 +379,7 @@
 
   .hero-description {
     justify-content: flex-end;
+    text-align: left;
   }
 
   .intro-inner {
