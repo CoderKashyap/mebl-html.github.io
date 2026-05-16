@@ -114,15 +114,41 @@
     const dropdown = document.querySelector('.nav-dropdown');
     if (!dropdown) return;
 
-    if (window.innerWidth <= 780) {
-      const btn = dropdown.querySelector('.nav-dropdown-btn');
-      if (btn) {
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          dropdown.classList.toggle('mobile-open');
-        });
-      }
+    if (window.innerWidth > 780) return;
+
+    const btn = dropdown.querySelector('.nav-dropdown-btn');
+    const menu = dropdown.querySelector('.nav-dropdown-menu');
+    if (!btn || !menu) return;
+
+    /* move menu to body so it escapes the navbar stacking context
+       (backdrop-filter on #navbar traps z-index of descendants) */
+    document.body.appendChild(menu);
+
+    /* overlay backdrop */
+    const overlay = document.createElement('div');
+    overlay.className = 'nav-dropdown-overlay';
+    document.body.appendChild(overlay);
+
+    function openPopup() {
+      menu.classList.add('open');
+      overlay.classList.add('open');
     }
+
+    function closePopup() {
+      menu.classList.remove('open');
+      overlay.classList.remove('open');
+    }
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openPopup();
+    });
+
+    overlay.addEventListener('click', closePopup);
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closePopup);
+    });
   }
 
   /* ── Smooth scroll for anchor links ─────────────────────── */
