@@ -12,7 +12,7 @@
   <style>
     .career-full-image {
       width: 100%;
-      max-height: 500px;
+      max-height: 800px;
       object-fit: cover;
       display: block;
     }
@@ -21,11 +21,47 @@
       max-width: var(--screen-width-limit);
       margin: 0 auto;
       color: var(--primary-color);
+      display: flex;
+      gap: 3rem;
+      align-items: flex-start;
     }
-    .contact-form-wrapper iframe {
-      width: 100%;
-      min-height: 600px;
+    .contact-form-iframe {
+      flex: 1;
+      min-height: 620px;
       border: none;
+      display: block;
+    }
+    .contact-details-sidebar {
+      flex-basis: 38%;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      padding-top: 0.5rem;
+    }
+    .contact-detail-group .cdg-label {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .contact-detail-group .cdg-text {
+      font-size: 1rem;
+      line-height: 1.9;
+      /* opacity: 0.8; */
+    }
+    @media screen and (max-width: 780px) {
+      .contact-form-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .contact-details-sidebar {
+        flex-basis: auto;
+        width: 100%;
+      }
+      .contact-form-iframe {
+        min-height: 480px;
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -98,13 +134,29 @@
   <!-- Full image 2 -->
   <img class="career-full-image" src="img/banner-2.webp" alt="MEBL Office" />
 
-  <!-- Contact Form (Fillout embed) -->
+  <!-- Contact Form + Details -->
   <div class="contact-form-wrapper">
     <iframe
+      class="contact-form-iframe"
       src="https://forms.fillout.com/t/kJ7hcaAmKsus"
       title="Contact Us Form"
       allow="fullscreen"
     ></iframe>
+    <div class="contact-details-sidebar">
+      <div class="contact-detail-group">
+        <p class="cdg-label">Registered Office:</p>
+        <p class="cdg-text">4th Floor BPK Star Tower AB Road Indore</p>
+      </div>
+      <div class="contact-detail-group">
+        <p class="cdg-label">Corporate Office:</p>
+        <p class="cdg-text">4th Floor BPK Star Tower,<br />Above Shoppers Stop,<br />AB Road,<br />Indore – 452008.</p>
+      </div>
+      <div class="contact-detail-group">
+        <p class="cdg-label">Contact Details:</p>
+        <p class="cdg-text">0731-4780400/500</p>
+        <p class="cdg-text">consumercare@meblindia.com</p>
+      </div>
+    </div>
   </div>
 </main>
 

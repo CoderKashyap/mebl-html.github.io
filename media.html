@@ -9,6 +9,46 @@
   <link rel="stylesheet" href="css/header.css" />
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/blog.css" />
+  <style>
+    .media-hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: white;
+    }
+    .media-hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .media-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      z-index: 1;
+    }
+    .media-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .media-hero-content h1 {
+      font-size: 6rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    @media screen and (max-width: 780px) {
+      .media-hero-content h1 {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -49,7 +89,17 @@
 </div>
 
 <main>
-  <div style="height:110px;background:var(--primary-color)"></div>
+
+  <!-- Hero with background video -->
+  <section class="media-hero">
+    <video class="media-hero-video" autoplay muted loop playsinline>
+      <source src="img/media-page-video.mp4" type="video/mp4" />
+    </video>
+    <div class="media-hero-overlay"></div>
+    <div class="media-hero-content">
+      <h1>Media</h1>
+    </div>
+  </section>
 
   <div class="blog-listing-bg">
     <div class="blog-listing-wrapper">

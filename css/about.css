@@ -31,18 +31,18 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(16,65,97,0.6);
+  /* background: rgba(16,65,97,0.6); */
 }
 
 .text-bg-section.light-overlay::before {
-  background: rgba(255,255,255,0.85);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .text-bg-content {
   position: relative;
   z-index: 1;
-  color: white;
-  padding: 5rem 4rem;
+  color: var(--primary-color);
+  padding: 8rem 4rem;
   max-width: var(--screen-width-limit);
   margin: 0 auto;
   width: 100%;
@@ -54,11 +54,11 @@
 
 .text-bg-label {
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   margin-bottom: 1rem;
-  opacity: 0.7;
+  /* opacity: 0.7; */
 }
 
 .text-bg-title {
@@ -77,7 +77,7 @@
 
 /* -- Text + Image Side ------------------------------------ */
 .text-image-section {
-  padding: 5rem 4rem;
+  padding: 10rem 4rem;
   max-width: var(--screen-width-limit);
   margin: 0 auto;
   display: flex;
@@ -91,12 +91,12 @@
 }
 
 .text-image-label {
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 1rem;
+  /* font-weight: 700; */
   text-transform: uppercase;
   letter-spacing: 0.12em;
   margin-bottom: 1rem;
-  opacity: 0.6;
+  /* opacity: 0.6; */
 }
 
 .text-image-title {
@@ -114,11 +114,23 @@
 .text-image-img {
   flex-basis: 40%;
   flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 250px;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  overflow: hidden;
+
 }
 
 .text-image-img img {
   width: 100%;
-  object-fit: contain;
+  height: 100%;
+  object-fit: contain; 
+  /* object-fit: fill */
 }
 
 /* -- Timeline -------------------------------------------- */
@@ -165,7 +177,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   transform: translateX(-50%);
 }
 
@@ -242,35 +254,231 @@
   border-radius: 8px;
 }
 
-/* -- Markets Map ----------------------------------------- */
-.markets-section {
-  padding: 5rem 2rem;
-  color: var(--primary-color);
-  text-align: center;
+/* -- Horizontal Scroll Timeline -------------------------- */
+.htl-container {
+  background: var(--primary-color);
 }
 
-.markets-section h2 {
+.htl-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+.htl-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.25s ease-out;
+  will-change: transform;
+}
+
+.htl-card {
+  flex-shrink: 0;
+  flex-basis: 500px;
+  height: 100vh;
+  /* display: flex; */
+  flex-direction: column;
+  gap: 6px;
+  padding: 2rem;
+  padding-top: 150px;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.htl-heading {
+  background-color: var(--primary-color);
+  justify-content: center;
+}
+
+.htl-heading-bottom-img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+.htl-heading-title {
   font-size: 2rem;
   font-weight: 900;
-  margin-bottom: 1rem;
+  width: 100%;
+  margin-bottom: 8px;
 }
 
-.markets-section p {
+.htl-heading-desc {
+  font-size: 1rem;
+  line-height: 1.85;
+  width: 100%;
+  white-space: pre-line;
+  /* opacity: 0.85; */
+}
+
+.htl-primary {
+  background-color: var(--primary-color);
+}
+
+.htl-secondary {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.htl-first {
+  background-size: cover;
+  background-position: center;
+}
+
+.htl-card-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.htl-first .htl-card-img {
+  visibility: hidden;
+}
+
+.htl-year {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  /* padding-top: 1rem; */
+  /* padding-bottom: 0.5rem; */
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.htl-primary .htl-year {
+  color: var(--secondary-color);
+}
+
+.htl-secondary .htl-year {
+  color: var(--primary-color);
+}
+
+.htl-line {
+  border: none;
+  border-top: 1px solid currentColor;
+  width: 200%;
+  margin: 0;
+  opacity: 0.4;
+}
+
+.htl-mark {
+  width: 3px;
+  height: 20px;
+  background: white;
+  margin-right: auto;
+  transform: translateY(-15px);
+}
+
+.htl-secondary .htl-mark {
+  background: var(--primary-color);
+}
+
+.htl-card-title {
+  /* padding-top: 1rem; */
+  width: 100%;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  min-height: 40px;
+}
+
+.htl-card-desc {
+  font-size: 0.9rem;
+  width: 100%;
+  line-height: 1.7;
+  opacity: 0.85;
+  overflow-y: auto;
+}
+
+/* -- Markets Map ----------------------------------------- */
+.markets-section {
+  background-color: #efefef;
+  position: relative;
+  color: var(--primary-color);
+}
+
+.markets-wrapper {
+  max-width: var(--screen-width-limit);
+  margin: 0 auto;
+  padding: 12rem 4rem 16rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.markets-text-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 420px;
+}
+
+.markets-text-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.markets-text-section p {
   font-size: 1rem;
   line-height: 1.8;
-  max-width: 700px;
-  margin: 0 auto 3rem;
 }
 
-.markets-section img {
-  max-width: 600px;
-  margin: 0 auto;
+.markets-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.markets-btn-existing,
+.markets-btn-new {
+  display: block;
+  padding: 0.5rem 1rem;
+  width: 300px;
+  color: white;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.markets-btn-existing {
+  background-color: #156b5e;
+}
+
+.markets-btn-new {
+  background-color: var(--primary-color);
+}
+
+.markets-img {
+  position: absolute;
+  height: 100%;
+  right: max(2rem, 5vw);
+  top: 0;
+  transform: scale(1.1);
+  transform-origin: center center;
+  object-fit: contain;
+  max-width: none;
+  width: auto;
 }
 
 /* -- Responsive ------------------------------------------ */
 @media screen and (max-width: 780px) {
-  .text-bg-content { padding: 4rem 1.5rem; }
-  .text-bg-title { font-size: 1.5rem; }
+  .text-bg-content {
+    padding: 4rem 1.5rem;
+  }
+
+  .text-bg-title {
+    font-size: 1.5rem;
+  }
 
   .text-image-section {
     flex-direction: column;
@@ -278,25 +486,112 @@
     gap: 2rem;
   }
 
-  .timeline-list::before { display: none; }
+  /* Carousel: disable scroll-driven animation, use touch scroll-snap */
+  .htl-container {
+    height: auto !important;
+    overflow: hidden;
+  }
 
-  .timeline-item,
-  .timeline-item:nth-child(even) {
-    flex-direction: column;
-    padding: 2rem 0;
+  .htl-sticky {
+    position: relative;
+    top: auto;
+    height: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .htl-sticky::-webkit-scrollbar {
+    display: none;
+  }
+
+  .htl-track {
+    transform: none !important;
+    transition: none;
+    width: max-content;
+  }
+
+  .htl-card {
+    width: 85vw !important;
+    flex-basis: 85vw !important;
+    height: 90vw;
+    min-height: 480px;
+    scroll-snap-align: start;
+    padding-top: 2.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .htl-heading {
+    min-height: 480px;
+    height: 90vw;
+  }
+
+  .htl-heading-title {
+    font-size: 1.5rem;
+  }
+
+  .htl-year {
+    font-size: 1.5rem;
+  }
+
+  .htl-card-title {
+    font-size: 1.1rem;
+    min-height: 60px;
+  }
+
+  /* Markets: mobile stacked layout */
+  .markets-wrapper {
+    flex-direction: column-reverse;
     gap: 1.5rem;
+    padding: 2.5rem;
   }
 
-  .timeline-item::before { display: none; }
-
-  .timeline-content,
-  .timeline-item:nth-child(even) .timeline-content {
-    text-align: left;
-    padding: 0 1.5rem;
+  .markets-text-section {
+    max-width: none;
   }
 
-  .timeline-img,
-  .timeline-item:nth-child(even) .timeline-img {
-    padding: 0 1.5rem;
+  .markets-text-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .markets-labels {
+    flex-direction: row;
+    gap: 0.75rem;
+  }
+
+  .markets-btn-existing,
+  .markets-btn-new {
+    width: auto;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 0.5rem;
+  }
+
+  .markets-image-container {
+    position: relative;
+    height: 420px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .markets-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    right: 30%;
+
+    transform: scale(1.8);
+    top: auto;
+    /* transform: none;
+    max-width: none; */
+    object-fit: contain;
   }
 }
