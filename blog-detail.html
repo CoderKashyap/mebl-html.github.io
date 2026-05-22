@@ -48,15 +48,12 @@
 </div>
 
 <main>
-  <!-- Page spacer (for fixed navbar) -->
-  <div style="height:110px;background:#fff"></div>
+  <!-- Hero image — fixed behind navbar, touches top of page -->
+  <div class="blog-hero" id="blogHero" style="display:none">
+    <img class="blog-hero-img" id="blogHeroImg" src="" alt="" />
+  </div>
 
   <article class="blog-article" id="blogArticle">
-    <!-- Hero image -->
-    <div class="blog-hero" id="blogHero" style="display:none">
-      <img class="blog-hero-img" id="blogHeroImg" src="" alt="" />
-    </div>
-
     <div class="blog-container">
       <a href="blog.html" class="back-link">&#8592; Back to Blog</a>
 
@@ -261,6 +258,7 @@ The monsoon may drape the world in grey, but in a beer glass, it creates layers 
       heroEl.style.display = '';
       document.getElementById('blogHeroImg').src = blog.banner_image;
       document.getElementById('blogHeroImg').alt = blog.title;
+      document.getElementById('blogArticle').classList.add('has-hero');
     }
 
     /* community */
