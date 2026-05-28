@@ -109,45 +109,58 @@
     });
   }
 
-  /* ── Product dropdown (mobile tap) ──────────────────────── */
+  /* ── Dropdowns (mobile tap + desktop navigate) ──────────── */
   function initDropdown() {
-    const dropdown = document.querySelector('.nav-dropdown');
-    if (!dropdown) return;
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    if (!dropdowns.length) return;
 
-    if (window.innerWidth > 780) return;
-
-    const btn = dropdown.querySelector('.nav-dropdown-btn');
-    const menu = dropdown.querySelector('.nav-dropdown-menu');
-    if (!btn || !menu) return;
-
-    /* move menu to body so it escapes the navbar stacking context
-       (backdrop-filter on #navbar traps z-index of descendants) */
-    document.body.appendChild(menu);
-
-    /* overlay backdrop */
-    const overlay = document.createElement('div');
-    overlay.className = 'nav-dropdown-overlay';
-    document.body.appendChild(overlay);
-
-    function openPopup() {
-      menu.classList.add('open');
-      overlay.classList.add('open');
+    /* Desktop: buttons with data-href navigate on click */
+    if (window.innerWidth > 780) {
+      dropdowns.forEach(function (dropdown) {
+        const btn = dropdown.querySelector('.nav-dropdown-btn');
+        if (btn && btn.getAttribute('data-href')) {
+          btn.addEventListener('click', function () {
+            window.location.href = btn.getAttribute('data-href');
+          });
+        }
+      });
+      return;
     }
 
-    function closePopup() {
-      menu.classList.remove('open');
-      overlay.classList.remove('open');
-    }
+    /* Mobile: each dropdown becomes a centered popup modal */
+    dropdowns.forEach(function (dropdown) {
+      const btn = dropdown.querySelector('.nav-dropdown-btn');
+      const menu = dropdown.querySelector('.nav-dropdown-menu');
+      if (!btn || !menu) return;
 
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      openPopup();
-    });
+      /* move menu to body so it escapes the navbar stacking context
+         (backdrop-filter on #navbar traps z-index of descendants) */
+      document.body.appendChild(menu);
 
-    overlay.addEventListener('click', closePopup);
+      const overlay = document.createElement('div');
+      overlay.className = 'nav-dropdown-overlay';
+      document.body.appendChild(overlay);
 
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closePopup);
+      function openPopup() {
+        menu.classList.add('open');
+        overlay.classList.add('open');
+      }
+
+      function closePopup() {
+        menu.classList.remove('open');
+        overlay.classList.remove('open');
+      }
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        openPopup();
+      });
+
+      overlay.addEventListener('click', closePopup);
+
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closePopup);
+      });
     });
   }
 

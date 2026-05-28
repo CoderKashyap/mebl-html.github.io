@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stories – Mount Everest Breweries Limited</title>
+  <meta name="description" content="The people, processes, and passion behind every pint — stories from inside MEBL." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <style>
+    /* ── Hero ─────────────────────────────────────────── */
+    .stories-hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: white;
+    }
+    .stories-hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .stories-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.3) 100%);
+      z-index: 1;
+    }
+    .stories-hero-content {
+      position: relative;
+      z-index: 2;
+      /* sits above video + overlay */
+      padding: 2rem;
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .stories-hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+      margin-bottom: 1.25rem;
+    }
+    .stories-hero-title {
+      font-size: 5.5rem;
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+    }
+    .stories-hero-desc {
+      font-size: 1.1rem;
+      opacity: 0.75;
+      max-width: 520px;
+      line-height: 1.65;
+      margin: 0 auto;
+    }
+
+    /* ── Story panels ──────────────────────────────────── */
+    .stories-list { background: #fff; }
+
+    .story-panel {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      min-height: 600px;
+      position: relative;
+    }
+    .story-panel:nth-child(even) {
+      grid-template-columns: 45% 55%;
+    }
+    .story-panel:nth-child(even) .story-img-col { order: 2; }
+    .story-panel:nth-child(even) .story-content-col { order: 1; }
+
+    .story-img-col {
+      overflow: hidden;
+      position: relative;
+    }
+    .story-img-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .story-panel:hover .story-img-col img { transform: scale(1.05); }
+
+    .story-img-col::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(16,65,97,0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .story-content-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4.5rem;
+      gap: 1.5rem;
+      position: relative;
+    }
+    .story-panel:nth-child(odd) .story-content-col { background: #fff; }
+    .story-panel:nth-child(even) .story-content-col { background: #f7f5f2; }
+
+    .story-number {
+      font-size: 7rem;
+      font-weight: 900;
+      line-height: 1;
+      color: rgba(16,65,97,0.07);
+      letter-spacing: -0.04em;
+      user-select: none;
+      position: absolute;
+      top: 1rem;
+      right: 3rem;
+    }
+
+    .story-category-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+    }
+    .cat-people  { background: #fff3e4; color: #b85c00; }
+    .cat-process { background: #e8f0f6; color: var(--primary-color); }
+    .cat-place   { background: #edf5ed; color: #2e7d32; }
+
+    .story-title {
+      font-size: 2.1rem;
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--primary-color);
+      letter-spacing: -0.02em;
+    }
+
+    .story-divider {
+      width: 40px;
+      height: 3px;
+      background: var(--secondary-color);
+      border-radius: 2px;
+    }
+
+    .story-excerpt {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #666;
+      max-width: 400px;
+    }
+
+    .story-read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+      text-decoration: none;
+      transition: gap 0.2s ease;
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+    }
+    .story-read-more:hover { gap: 0.85rem; }
+    .story-read-more .arrow {
+      width: 28px;
+      height: 28px;
+      border: 2px solid var(--secondary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      transition: background 0.2s, color 0.2s;
+      padding-top: 3px;
+      padding-left: 2px;
+
+    }
+    .story-read-more:hover .arrow {
+      background: var(--secondary-color);
+      color: #fff;
+    }
+
+    /* ── Separator line ──────────────────────────────── */
+    .story-panel + .story-panel {
+      border-top: 1px solid #ebebeb;
+    }
+
+    /* ── Responsive ──────────────────────────────────── */
+    @media screen and (max-width: 900px) {
+      .story-panel,
+      .story-panel:nth-child(even) {
+        grid-template-columns: 1fr;
+      }
+      .story-panel:nth-child(even) .story-img-col,
+      .story-panel:nth-child(even) .story-content-col {
+        order: unset;
+      }
+      .story-img-col { min-height: 320px; }
+      .story-content-col { padding: 3rem 2rem; }
+      .story-number { font-size: 4rem; top: 1.5rem; right: 1.5rem; }
+      .story-title { font-size: 1.6rem; }
+      .stories-hero-title { font-size: 4rem; }
+      .stories-hero-content { padding: 3rem 2rem; }
+    }
+    @media screen and (max-width: 480px) {
+      .stories-hero-title { font-size: 3rem; }
+      .story-title { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="navbar-placeholder" data-transparent="true"></div>
+
+<main>
+
+  <!-- ── Hero ─────────────────────────────────────────── -->
+  <section class="stories-hero">
+    <video class="stories-hero-video" autoplay muted loop playsinline>
+      <source src="img/media-page-video.mp4" type="video/mp4" />
+    </video>
+    <div class="stories-hero-overlay"></div>
+    <div class="stories-hero-content">
+      <p class="stories-hero-eyebrow">Media Stories</p>
+      <h1 class="stories-hero-title">The People Behind<br>The Pour</h1>
+      <p class="stories-hero-desc">Behind every sip of MEBL beer is a human story — of craft, conviction, and community. We bring them to you, unfiltered.</p>
+    </div>
+  </section>
+
+  <!-- ── Story Panels ──────────────────────────────────── -->
+  <div class="stories-list">
+
+    <!-- Story 01 -->
+    <article class="story-panel">
+      <div class="story-img-col">
+        <img src="img/vedant-kedia.png-1-.png" alt="The Brewmaster's Craft" />
+      </div>
+      <div class="story-content-col">
+        <span class="story-number">01</span>
+        <span class="story-category-tag cat-process">Process</span>
+        <h2 class="story-title">The Brewmaster's Craft: Inside MEBL's R&amp;D Lab Where Recipes Are Born</h2>
+        <div class="story-divider"></div>
+        <p class="story-excerpt">Step inside the quiet, yeast-scented corridors where MEBL's head brewmaster and a small team of scientists push the boundaries of what Indian beer can taste like. This is where Stok's signature chill was engineered — and where the next legend is already fermenting.</p>
+        <a class="story-read-more" href="#"> <span> Read Story </span> <span class="arrow">&#x2794;</span></a>
+      </div>
+    </article>
+
+    <!-- Story 02 -->
+    <article class="story-panel">
+      <div class="story-img-col">
+        <img src="img/c3.webp" alt="Farm to Glass" />
+      </div>
+      <div class="story-content-col">
+        <span class="story-number">02</span>
+        <span class="story-category-tag cat-process">Process</span>
+        <h2 class="story-title">From Wheat Fields to Beer Cans: MEBL's Farm-to-Glass Journey</h2>
+        <div class="story-divider"></div>
+        <p class="story-excerpt">Long before a Stok can reaches your hand, the journey begins in the fields of Madhya Pradesh. MEBL works with over 2,000 farmers across the state, sourcing barley and wheat directly — keeping quality close to the soil and freshness locked into every batch.</p>
+        <a class="story-read-more" href="#">Read Story <span class="arrow">&#x2794;</span></a>
+      </div>
+    </article>
+
+    <!-- Story 03 -->
+    <article class="story-panel">
+      <div class="story-img-col">
+        <img src="img/our_story_image.webp" alt="25 Years - Rajan Kumar" />
+      </div>
+      <div class="story-content-col">
+        <span class="story-number">03</span>
+        <span class="story-category-tag cat-people">People</span>
+        <h2 class="story-title">25 Years of Brewing: How Rajan Kumar Grew with MEBL from Day One</h2>
+        <div class="story-divider"></div>
+        <p class="story-excerpt">Rajan Kumar joined MEBL in 1999 as a floor hand. Today he heads quality assurance for the entire Indore facility. His story is the story of MEBL — a company that bet on people as much as it bet on beer.</p>
+        <a class="story-read-more" href="#">Read Story <span class="arrow">&#x2794;</span></a>
+      </div>
+    </article>
+
+    <!-- Story 04 -->
+    <article class="story-panel">
+      <div class="story-img-col">
+        <img src="img/c4_2.webp" alt="MEBL and Local Farming Community" />
+      </div>
+      <div class="story-content-col">
+        <span class="story-number">04</span>
+        <span class="story-category-tag cat-place">Place</span>
+        <h2 class="story-title">How MEBL Supports 2,000+ Farming Families Across Madhya Pradesh</h2>
+        <div class="story-divider"></div>
+        <p class="story-excerpt">Indore is more than a headquarters — it's home. MEBL's roots run deep in the soil of Madhya Pradesh. From direct procurement that cuts out middlemen to livelihood programs in rural districts, discover how MEBL is brewing a better tomorrow for the communities it calls family.</p>
+        <a class="story-read-more" href="#">Read Story <span class="arrow">&#x2794;</span></a>
+      </div>
+    </article>
+
+    <!-- Story 05 -->
+    <article class="story-panel">
+      <div class="story-img-col">
+        <img src="img/beer-imagery1.webp" alt="Success is enabling the culture of chill" />
+      </div>
+      <div class="story-content-col">
+        <span class="story-number">05</span>
+        <span class="story-category-tag cat-people">People</span>
+        <h2 class="story-title">"Success Is Enabling The Culture Of Chill" — Vedant Kedia on STOK's Philosophy</h2>
+        <div class="story-divider"></div>
+        <p class="story-excerpt">Vedant Kedia, Whole Time Director of MEBL, talks about why the Stok Panda is not just a mascot but a lifestyle — and how MEBL is building a brand that sells a state of mind, not just a beer.</p>
+        <a class="story-read-more" href="media-detail.html?id=success-is-enabling-the-culture-of-chill">Read Story <span class="arrow">&#x2794;</span></a>
+      </div>
+    </article>
+
+    <!-- Story 06 -->
+    <article class="story-panel">
+      <div class="story-img-col">
+        <img src="img/c2.webp" alt="MEBL Green Initiative" />
+      </div>
+      <div class="story-content-col">
+        <span class="story-number">06</span>
+        <span class="story-category-tag cat-process">Process</span>
+        <h2 class="story-title">Brewing Sustainably: Inside MEBL's Zero-Waste Green Manufacturing Initiative</h2>
+        <div class="story-divider"></div>
+        <p class="story-excerpt">MEBL's Indore facility consumes 30% less water per litre of beer than the industry average. Spent grain goes to local cattle feed. Solar panels cover the warehouse rooftops. Sustainability at MEBL isn't a marketing line — it's a balance sheet item.</p>
+        <a class="story-read-more" href="#">Read Story <span class="arrow">&#x2794;</span></a>
+      </div>
+    </article>
+
+  </div>
+
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/components.js" data-base=""></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -12,40 +12,7 @@
 <body>
 
 <!-- HEADER -->
-<div id="navbar">
-  <header>
-    <nav class="nav-inner">
-      <ul class="nav-menu">
-        <div class="nav-half">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li class="nav-dropdown">
-            <button class="nav-dropdown-btn">Meet Our Brews</button>
-            <ul class="nav-dropdown-menu">
-              <li><a href="products/stok.html">Stok</a></li>
-              <li><a href="products/lemount.html">Lemount</a></li>
-              <li><a href="products/mount-6000.html">Mount's 6000</a></li>
-              <li><a href="products/dabang.html">Dabang</a></li>
-            </ul>
-          </li>
-          <li><a href="media.html" class="nav-link">Media</a></li>
-        </div>
-        <div class="nav-half nav-half-right">
-          <li><a href="career.html" class="nav-link">Career</a></li>
-          <li><a href="investor-relations.html" class="nav-link">Investor Relations</a></li>
-          <li><a href="about-us.html" class="nav-link">About us</a></li>
-        </div>
-      </ul>
-      <div class="nav-logo">
-        <a href="index.html">
-          <img src="img/logo.webp" alt="Mount Everest Breweries logo" />
-        </a>
-      </div>
-      <div class="hamburger" aria-label="Toggle menu">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </div>
-    </nav>
-  </header>
-</div>
+<div id="navbar-placeholder" data-transparent="true"></div>
 
 <main>
   <div style="height:110px;background:#fff"></div>
@@ -79,55 +46,10 @@
 </main>
 
 <!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <img src="img/logo-mneumonic.webp" alt="MEBL logo" />
-        </div>
-        <img class="footer-mobile-logo" src="img/logo.webp" alt="MEBL logo" />
-        <div class="footer-name-msg">
-          <div class="footer-company-name">Mount Everest Breweries Limited</div>
-          <div class="footer-message">Thanks for stopping by our corner of the internet!<br />Whether you're here to sip, savor, or join our brewing journey, we're excited to have you along.</div>
-          <div class="footer-socials">
-            <a href="https://www.linkedin.com/company/mount-everest-breweries-limited/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-nav">
-        <nav><ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#meet-our-beers">Meet Our Brews</a></li>
-          <li><a href="career.html">Careers</a></li>
-          <li><a href="media.html">Media</a></li>
-          <li><a href="investor-relations.html">Investor Relations</a></li>
-          <li><a href="about-us.html">About us</a></li>
-        </ul></nav>
-      </div>
-      <div class="footer-contact">
-        <div class="footer-contact-item">
-          <img src="icons/phone.svg" alt="phone" />
-          <span>0731-4780400/500</span>
-        </div>
-        <div class="footer-contact-item">
-          <img src="icons/location.svg" alt="address" />
-          <span>4th Floor BPK Star Tower,<br />Above Shoppers Stop,<br />AB Road,<br />Indore – 452008.</span>
-        </div>
-      </div>
-      <div class="footer-mobile-socials">
-        <a href="https://www.linkedin.com/company/mount-everest-breweries-limited/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <a href="policies/privacy-policy.html">Privacy Policy</a>
-      <a href="policies/terms.html">Terms of use</a>
-      <div class="footer-copyright">© 2026–Present Mount Everest Breweries LTD. All Rights Reserved.</div>
-    </div>
-  </div>
-</footer>
+<div id="footer-placeholder"></div>
 
-<script src="js/main.js"></script>
+<script src="js/components.js" data-base=""></script>
+  <script src="js/main.js"></script>
 <script>
 var MEDIA_DATA = {
   "why-beer-flavour-feels-different-in-the-monsoon": {
@@ -362,6 +284,9 @@ The brand aims to bring together people of different personalities to create a "
     document.title = item.title + ' – Mount Everest Breweries Limited';
 
     if (item.banner_image) {
+      /* Hero present — remove spacer so hero starts flush at top behind transparent navbar */
+      var spacer = document.querySelector('main > div[style*="110px"]');
+      if (spacer) spacer.style.display = 'none';
       document.getElementById('mediaHero').style.display = '';
       document.getElementById('mediaHeroImg').src = item.banner_image;
       document.getElementById('mediaHeroImg').alt = item.title;

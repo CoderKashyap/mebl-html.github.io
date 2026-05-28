@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events &amp; Awards – Mount Everest Breweries Limited</title>
+  <meta name="description" content="MEBL's milestones — industry awards, landmark events, and the proud moments that define our brewing legacy." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <style>
+    /* ── Hero ─────────────────────────────────────────── */
+    .ea-hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: white;
+    }
+    .ea-hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .ea-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+    .ea-hero-content {
+      position: relative;
+      z-index: 2;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 2rem;
+    }
+    .ea-hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+      margin-bottom: 1.25rem;
+    }
+    .ea-hero-title {
+      font-size: 5.5rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+    .ea-hero-desc {
+      font-size: 1.05rem;
+      opacity: 0.75;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* ── Section wrapper ──────────────────────────────── */
+    .ea-section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+
+    .ea-section-header {
+      display: flex;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    .ea-section-title {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+    }
+    .ea-section-heading {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--primary-color);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .ea-heading-line {
+      flex: 1;
+      height: 1px;
+      background: #e8e8e8;
+      margin-bottom: 0.6rem;
+    }
+
+    /* ── Awards grid ──────────────────────────────────── */
+    .awards-bg { background: #fff; }
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .award-card {
+      background: linear-gradient(145deg, #0d3450 0%, var(--primary-color) 100%);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .award-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(16,65,97,0.35);
+    }
+    .award-card::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: rgba(248,162,79,0.12);
+    }
+    .award-card::after {
+      content: '';
+      position: absolute;
+      bottom: -50px; left: -20px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .award-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .award-year-badge {
+      display: inline-block;
+      background: var(--secondary-color);
+      color: var(--primary-color);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .award-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 0.65rem;
+      position: relative;
+      z-index: 1;
+    }
+    .award-body {
+      font-size: 0.82rem;
+      opacity: 0.65;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Events timeline ──────────────────────────────── */
+    .events-bg { background: #f7f5f2; }
+
+    .events-timeline {
+      position: relative;
+      padding-left: 48px;
+    }
+    .events-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--secondary-color), transparent);
+    }
+
+    .event-item {
+      position: relative;
+      padding-bottom: 3.5rem;
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .event-item:last-child { padding-bottom: 0; }
+
+    .event-item::before {
+      content: '';
+      position: absolute;
+      left: -48px;
+      top: 8px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--secondary-color);
+      box-shadow: 0 0 0 4px rgba(248,162,79,0.25);
+      transform: translateX(-6px);
+    }
+
+    .event-date-col {
+      text-align: right;
+      padding-top: 2px;
+    }
+    .event-date-day {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary-color);
+      line-height: 1;
+    }
+    .event-date-month {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+    }
+
+    .event-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.75rem 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .event-card:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+      transform: translateX(4px);
+    }
+
+    .event-type-badge {
+      display: inline-block;
+      font-size: 0.67rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 0.75rem;
+    }
+    .type-event { background: #e8f0f6; color: var(--primary-color); }
+
+    .event-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+    .event-location {
+      font-size: 0.85rem;
+      color: #888;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .event-location svg {
+      width: 13px; height: 13px;
+      opacity: 0.6; flex-shrink: 0;
+    }
+
+    /* ── Responsive ──────────────────────────────────── */
+    @media screen and (max-width: 900px) {
+      .awards-grid { grid-template-columns: 1fr 1fr; }
+      .ea-hero-title { font-size: 3.5rem; }
+    }
+    @media screen and (max-width: 600px) {
+      .awards-grid { grid-template-columns: 1fr; }
+      .ea-hero-title { font-size: 2.8rem; }
+      .ea-section { padding: 3.5rem 1.5rem; }
+      .ea-section-heading { font-size: 2rem; }
+      .event-item { grid-template-columns: 1fr; gap: 1rem; }
+      .event-date-col { text-align: left; }
+      .events-timeline { padding-left: 28px; }
+      .event-item::before { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+
+<div id="navbar-placeholder" data-transparent="true"></div>
+
+<main>
+
+  <!-- ── Hero ─────────────────────────────────────────── -->
+  <section class="ea-hero">
+    <video class="ea-hero-video" autoplay muted loop playsinline>
+      <source src="img/media-page-video.mp4" type="video/mp4" />
+    </video>
+    <div class="ea-hero-overlay"></div>
+    <div class="ea-hero-content">
+      <p class="ea-hero-eyebrow">Media</p>
+      <h1 class="ea-hero-title">Events &amp; Awards</h1>
+      <p class="ea-hero-desc">Celebrating the milestones, recognitions, and moments that define our legacy at the summit.</p>
+    </div>
+  </section>
+
+  <!-- ── Awards ─────────────────────────────────────────── -->
+  <div class="awards-bg">
+    <div class="ea-section">
+      <div class="ea-section-header">
+        <div>
+          <p class="ea-section-title">Recognition</p>
+          <h2 class="ea-section-heading">Our Awards</h2>
+        </div>
+        <div class="ea-heading-line"></div>
+      </div>
+
+      <div class="awards-grid">
+
+        <div class="award-card">
+          <div class="award-icon">&#127942;</div>
+          <span class="award-year-badge">2025</span>
+          <h3 class="award-name">Best Brewery of the Year</h3>
+          <p class="award-body">Indian Beer Summit — New Delhi, November 2025</p>
+        </div>
+
+        <div class="award-card">
+          <div class="award-icon">&#127941;</div>
+          <span class="award-year-badge">2025</span>
+          <h3 class="award-name">Excellence in Manufacturing</h3>
+          <p class="award-body">MP Government Industrial Awards — Bhopal, July 2025</p>
+        </div>
+
+        <div class="award-card">
+          <div class="award-icon">&#127894;</div>
+          <span class="award-year-badge">2024</span>
+          <h3 class="award-name">India's Most Trusted Brewery Brand</h3>
+          <p class="award-body">Brand Trust Report — BW Businessworld, April 2024</p>
+        </div>
+
+        <div class="award-card">
+          <div class="award-icon">&#9733;</div>
+          <span class="award-year-badge">2024</span>
+          <h3 class="award-name">Fastest Growing Beer Brand</h3>
+          <p class="award-body">Alcobev Business Awards — FICCI, Mumbai, 2024</p>
+        </div>
+
+        <div class="award-card">
+          <div class="award-icon">&#127775;</div>
+          <span class="award-year-badge">2023</span>
+          <h3 class="award-name">Innovation in Packaging Award</h3>
+          <p class="award-body">Packaging South Asia — Annual Excellence Awards, 2023</p>
+        </div>
+
+        <div class="award-card">
+          <div class="award-icon">&#9920;</div>
+          <span class="award-year-badge">2023</span>
+          <h3 class="award-name">Sustainability Leader — Brewing Industry</h3>
+          <p class="award-body">CII Sustainable Manufacturing Awards, New Delhi, 2023</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Events Timeline ────────────────────────────────── -->
+  <div class="events-bg">
+    <div class="ea-section">
+      <div class="ea-section-header">
+        <div>
+          <p class="ea-section-title">Moments</p>
+          <h2 class="ea-section-heading">Events</h2>
+        </div>
+        <div class="ea-heading-line"></div>
+      </div>
+
+      <div class="events-timeline">
+
+        <div class="event-item">
+          <div class="event-date-col">
+            <div class="event-date-day">22</div>
+            <div class="event-date-month">Sep 2025</div>
+          </div>
+          <div class="event-card">
+            <span class="event-type-badge type-event">Event</span>
+            <h3 class="event-title">STOK Summer Fest 2025 — A Night of Craft, Culture &amp; Chill</h3>
+            <p class="event-location">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Bandra, Mumbai
+            </p>
+          </div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date-col">
+            <div class="event-date-day">08</div>
+            <div class="event-date-month">Aug 2025</div>
+          </div>
+          <div class="event-card">
+            <span class="event-type-badge type-event">Event</span>
+            <h3 class="event-title">MEBL at Beverage India Expo 2025 — Showcasing the Future of Indian Brewing</h3>
+            <p class="event-location">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Pragati Maidan, New Delhi
+            </p>
+          </div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date-col">
+            <div class="event-date-day">05</div>
+            <div class="event-date-month">May 2025</div>
+          </div>
+          <div class="event-card">
+            <span class="event-type-badge type-event">Event</span>
+            <h3 class="event-title">Lemount Grand Launch — Brewed Bold, Launched Bolder</h3>
+            <p class="event-location">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Panaji, Goa
+            </p>
+          </div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date-col">
+            <div class="event-date-day">12</div>
+            <div class="event-date-month">Mar 2025</div>
+          </div>
+          <div class="event-card">
+            <span class="event-type-badge type-event">Event</span>
+            <h3 class="event-title">MEBL Silver Jubilee Gala — 25 Peaks, One Legendary Brew</h3>
+            <p class="event-location">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Indore, Madhya Pradesh
+            </p>
+          </div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date-col">
+            <div class="event-date-day">19</div>
+            <div class="event-date-month">Oct 2024</div>
+          </div>
+          <div class="event-card">
+            <span class="event-type-badge type-event">Event</span>
+            <h3 class="event-title">Laughter Brewery Comedy Night — The Culture of Chill, Live</h3>
+            <p class="event-location">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              The Comedy Store, Pune
+            </p>
+          </div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date-col">
+            <div class="event-date-day">14</div>
+            <div class="event-date-month">Jun 2024</div>
+          </div>
+          <div class="event-card">
+            <span class="event-type-badge type-event">Event</span>
+            <h3 class="event-title">Dabang Fest 2024 — Dare to Win, On Stage and Off It</h3>
+            <p class="event-location">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              MMRDA Ground, Mumbai
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/components.js" data-base=""></script>
+<script src="js/main.js"></script>
+</body>
+</html>

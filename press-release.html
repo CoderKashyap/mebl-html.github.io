@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Press Release – Mount Everest Breweries Limited</title>
+  <meta name="description" content="Official press releases and announcements from Mount Everest Breweries Limited." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <style>
+    /* ── Hero ─────────────────────────────────────────── */
+    .pr-hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+    }
+    .pr-hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .pr-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.52);
+      z-index: 1;
+    }
+    .pr-hero-content {
+      position: relative;
+      z-index: 2;
+      /* above video overlay */
+      padding: 0 2rem;
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .pr-hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+      margin-bottom: 1.25rem;
+    }
+    .pr-hero-title {
+      font-size: 5.5rem;
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+    }
+    .pr-hero-desc {
+      font-size: 1rem;
+      opacity: 0.7;
+      max-width: 480px;
+      line-height: 1.7;
+      margin: 0 auto;
+    }
+
+    /* ── Newsroom body ──────────────────────────────────── */
+    .pr-body {
+      background: #fafafa;
+      min-height: 60vh;
+    }
+    .pr-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 5rem 2rem 7rem;
+    }
+
+    /* Year group */
+    .pr-year-group { margin-bottom: 4rem; }
+    .pr-year-label {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: rgba(16,65,97,0.08);
+      letter-spacing: -0.04em;
+      margin-bottom: 0.5rem;
+      user-select: none;
+      line-height: 1;
+    }
+    .pr-year-divider {
+      width: 100%;
+      height: 2px;
+      background: var(--primary-color);
+      opacity: 0.12;
+      margin-bottom: 0;
+    }
+
+    /* PR list items */
+    .pr-list { list-style: none; padding: 0; margin: 0; }
+
+    .pr-item {
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 2.25rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      position: relative;
+      transition: background 0.2s ease;
+      cursor: default;
+    }
+    .pr-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem; top: 0; bottom: 0;
+      width: 4px;
+      background: var(--secondary-color);
+      border-radius: 0 4px 4px 0;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .pr-item:hover::before { opacity: 1; }
+    .pr-item:hover { background: rgba(248,162,79,0.04); }
+
+    /* Date column */
+    .pr-date {
+      text-align: center;
+    }
+    .pr-date-day {
+      font-size: 2.25rem;
+      font-weight: 900;
+      color: var(--primary-color);
+      line-height: 1;
+    }
+    .pr-date-month {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+    }
+
+    /* Content column */
+    .pr-content {}
+    .pr-source-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .pr-tag {
+      display: inline-block;
+      background: var(--primary-color);
+      color: white;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 4px;
+    }
+    .pr-source-name {
+      font-size: 0.8rem;
+      color: #999;
+      font-weight: 500;
+    }
+    .pr-headline {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* CTA column */
+    .pr-cta-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      align-items: flex-end;
+    }
+    .pr-read-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+      text-decoration: none;
+      transition: gap 0.2s ease;
+      white-space: nowrap;
+    }
+    .pr-read-btn:hover { gap: 10px; }
+
+    /* ── Responsive ──────────────────────────────────── */
+    @media screen and (max-width: 900px) {
+      .pr-hero-title { font-size: 3.5rem; }
+      .pr-hero-content { padding: 0 2rem; }
+      .pr-item { grid-template-columns: 80px 1fr; gap: 1.5rem; }
+      .pr-cta-col { display: none; }
+      .pr-date-day { font-size: 1.75rem; }
+    }
+    @media screen and (max-width: 480px) {
+      .pr-hero-title { font-size: 2.6rem; }
+      .pr-item { grid-template-columns: 70px 1fr; gap: 1rem; padding: 1.75rem 0; }
+      .pr-date-day { font-size: 1.5rem; }
+      .pr-headline { font-size: 1rem; }
+      .pr-inner { padding: 3rem 1.5rem 5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="navbar-placeholder" data-transparent="true"></div>
+
+<main>
+
+  <!-- ── Hero ─────────────────────────────────────────── -->
+  <section class="pr-hero">
+    <video class="pr-hero-video" autoplay muted loop playsinline>
+      <source src="img/media-page-video.mp4" type="video/mp4" />
+    </video>
+    <div class="pr-hero-overlay"></div>
+    <div class="pr-hero-content">
+      <p class="pr-hero-eyebrow">Media</p>
+      <h1 class="pr-hero-title">Press Room</h1>
+      <p class="pr-hero-desc">Official statements, announcements, and news from Mount Everest Breweries Limited. For press enquiries, write to us at <strong>media@mebl.in</strong></p>
+    </div>
+  </section>
+
+  <!-- ── Press Releases ──────────────────────────────── -->
+  <div class="pr-body">
+    <div class="pr-inner">
+
+      <!-- 2026 -->
+      <div class="pr-year-group">
+        <div class="pr-year-label">2026</div>
+        <div class="pr-year-divider"></div>
+        <ul class="pr-list">
+
+          <li class="pr-item">
+            <div class="pr-date">
+              <div class="pr-date-day">15</div>
+              <div class="pr-date-month">Jan 2026</div>
+            </div>
+            <div class="pr-content">
+              <div class="pr-source-row">
+                <span class="pr-tag">Official</span>
+                <span class="pr-source-name">MEBL Press Office</span>
+              </div>
+              <p class="pr-headline">MEBL Expands Market Presence in Goa with Stok Premium Range Launch</p>
+            </div>
+            <div class="pr-cta-col">
+              <a class="pr-read-btn" href="#">Read Release &#8594;</a>
+            </div>
+          </li>
+
+          <li class="pr-item">
+            <div class="pr-date">
+              <div class="pr-date-day">10</div>
+              <div class="pr-date-month">Dec 2025</div>
+            </div>
+            <div class="pr-content">
+              <div class="pr-source-row">
+                <span class="pr-tag">Official</span>
+                <span class="pr-source-name">MEBL Press Office</span>
+              </div>
+              <p class="pr-headline">Mount Everest Breweries Reports Record 42% Growth in FY 2025–26 Q3</p>
+            </div>
+            <div class="pr-cta-col">
+              <a class="pr-read-btn" href="#">Read Release &#8594;</a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- 2025 -->
+      <div class="pr-year-group">
+        <div class="pr-year-label">2025</div>
+        <div class="pr-year-divider"></div>
+        <ul class="pr-list">
+
+          <li class="pr-item">
+            <div class="pr-date">
+              <div class="pr-date-day">28</div>
+              <div class="pr-date-month">Nov 2025</div>
+            </div>
+            <div class="pr-content">
+              <div class="pr-source-row">
+                <span class="pr-tag">Official</span>
+                <span class="pr-source-name">MEBL Press Office</span>
+              </div>
+              <p class="pr-headline">MEBL Celebrates 25 Years of Brewing Excellence Across India</p>
+            </div>
+            <div class="pr-cta-col">
+              <a class="pr-read-btn" href="#">Read Release &#8594;</a>
+            </div>
+          </li>
+
+          <li class="pr-item">
+            <div class="pr-date">
+              <div class="pr-date-day">20</div>
+              <div class="pr-date-month">Oct 2025</div>
+            </div>
+            <div class="pr-content">
+              <div class="pr-source-row">
+                <span class="pr-tag">Official</span>
+                <span class="pr-source-name">MEBL Press Office</span>
+              </div>
+              <p class="pr-headline">MEBL Partners with Major Distribution Networks for Pan-India Retail Reach</p>
+            </div>
+            <div class="pr-cta-col">
+              <a class="pr-read-btn" href="#">Read Release &#8594;</a>
+            </div>
+          </li>
+
+          <li class="pr-item">
+            <div class="pr-date">
+              <div class="pr-date-day">17</div>
+              <div class="pr-date-month">Sep 2025</div>
+            </div>
+            <div class="pr-content">
+              <div class="pr-source-row">
+                <span class="pr-tag">Official</span>
+                <span class="pr-source-name">MEBL Press Office · FE Retail</span>
+              </div>
+              <p class="pr-headline">Mount Everest Breweries Acquires Mysuru's Cheers Breweries to Strengthen Southern Footprint</p>
+            </div>
+            <div class="pr-cta-col">
+              <a class="pr-read-btn" href="media-detail.html?id=mebl-acquires-mysurus-cheers-breweries">Read Release &#8594;</a>
+            </div>
+          </li>
+
+          <li class="pr-item">
+            <div class="pr-date">
+              <div class="pr-date-day">05</div>
+              <div class="pr-date-month">Aug 2025</div>
+            </div>
+            <div class="pr-content">
+              <div class="pr-source-row">
+                <span class="pr-tag">Official</span>
+                <span class="pr-source-name">MEBL Press Office</span>
+              </div>
+              <p class="pr-headline">MEBL Unveils State-of-the-Art High-Speed Canning Line at Indore Facility</p>
+            </div>
+            <div class="pr-cta-col">
+              <a class="pr-read-btn" href="#">Read Release &#8594;</a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- 2024 -->
+      <div class="pr-year-group">
+        <div class="pr-year-label">2024</div>
+        <div class="pr-year-divider"></div>
+        <ul class="pr-list">
+
+          <li class="pr-item">
+            <div class="pr-date">
+              <div class="pr-date-day">26</div>
+              <div class="pr-date-month">Jan 2024</div>
+            </div>
+            <div class="pr-content">
+              <div class="pr-source-row">
+                <span class="pr-tag">Coverage</span>
+                <span class="pr-source-name">Bizz Buzz</span>
+              </div>
+              <p class="pr-headline">Mount Everest Breweries Aims to Produce 1 Crore Cases of Beer Per Year by 2025</p>
+            </div>
+            <div class="pr-cta-col">
+              <a class="pr-read-btn" href="media-detail.html?id=mebl-1-crore-cases-beer-per-year-2025">Read Release &#8594;</a>
+            </div>
+          </li>
+
+          <li class="pr-item">
+            <div class="pr-date">
+              <div class="pr-date-day">01</div>
+              <div class="pr-date-month">Feb 2024</div>
+            </div>
+            <div class="pr-content">
+              <div class="pr-source-row">
+                <span class="pr-tag">Coverage</span>
+                <span class="pr-source-name">Economic Times</span>
+              </div>
+              <p class="pr-headline">Strategies of Indian Alcohol Brands Amid Government Restrictions on Direct Advertising</p>
+            </div>
+            <div class="pr-cta-col">
+              <a class="pr-read-btn" href="media-detail.html?id=strategies-of-indian-alcohol-brands">Read Release &#8594;</a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/components.js" data-base=""></script>
+<script src="js/main.js"></script>
+</body>
+</html>

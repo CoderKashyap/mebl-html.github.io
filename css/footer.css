@@ -3,10 +3,12 @@
    ============================================================ */
 
 .site-footer {
-  font-family: var(--font-main);
-  background: var(--primary-color);
-  color: white;
-  padding: 4rem 2rem 6rem;
+    position: relative;
+    z-index: 5;
+    font-family: var(--font-main);
+    background: var(--primary-color);
+    color: white;
+    padding: 4rem 2rem 6rem;
 }
 
 .footer-inner {
