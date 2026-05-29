@@ -249,6 +249,102 @@
   }
 }
 
+/* -- Related Posts ------------------------------------- */
+.related-posts {
+  background: #f2f2f2;
+  padding: 5rem 2rem;
+}
+
+.related-posts-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.related-posts-heading {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--primary-color);
+  margin-bottom: 2.5rem;
+}
+
+.related-posts-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.rel-card {
+  flex-basis: calc(33.333% - 1.34rem);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.rel-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.14);
+}
+
+.rel-card-img-wrap { overflow: hidden; }
+
+.rel-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.rel-card:hover .rel-card-img { transform: scale(1.06); }
+
+.rel-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.1rem 1.25rem 1.4rem;
+  flex: 1;
+}
+
+.rel-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #999;
+  font-weight: 500;
+}
+
+.rel-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--primary-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rel-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  margin-top: auto;
+}
+
 /* -- Responsive ---------------------------------------- */
 @media screen and (max-width: 780px) {
   .blog-hero { height: 42vh; min-height: 220px; }
@@ -264,4 +360,11 @@
   .blog-toc { position: static; padding: 1.25rem; }
   .blog-section-heading { font-size: 1.2rem; }
   .blog-paragraph { font-size: 1rem; }
+
+  .related-posts { padding: 3rem 1.5rem; }
+  .rel-card { flex-basis: calc(50% - 1rem); }
+}
+
+@media screen and (max-width: 480px) {
+  .rel-card { flex-basis: 100%; }
 }

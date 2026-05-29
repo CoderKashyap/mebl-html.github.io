@@ -8,6 +8,20 @@
   <link rel="stylesheet" href="../css/header.css" />
   <link rel="stylesheet" href="../css/footer.css" />
   <style>
+    .policy-hero {
+      background: var(--primary-color);
+      color: #fff;
+      text-align: center;
+      /* padding: 4.5rem 1.5rem; */
+      padding-top: 12rem;
+      padding-bottom: 4rem;
+    }
+    .policy-hero h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
     .policy-wrapper {
       padding: 2rem;
       max-width: 900px;
@@ -21,13 +35,21 @@
 </head>
 <body>
 
-<!-- HEADER -->
-<div id="navbar-placeholder"></div>
+  
+  <!-- ═══════════════════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════════════════════ -->
+  <div id="navbar-placeholder" data-transparent="true"></div>
 
-<main>
-  <div style="height:110px;background:var(--primary-color)"></div>
+
+  <main>
+  <section class="policy-hero">
+    <div class="container">
+      <h1>Privacy Policy</h1>
+    </div>
+  </section>
+
   <div class="policy-wrapper">
-    <h1>Privacy Policy</h1>
 
     <h2>Information Collection</h2>
     <p>We may collect personal information, such as your name, email address, and location, when you visit our website, subscribe to our newsletter, or make a purchase. We may also collect non-personal information, such as your IP address and browser type.</p>

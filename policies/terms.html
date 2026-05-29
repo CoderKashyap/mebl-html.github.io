@@ -8,6 +8,18 @@
   <link rel="stylesheet" href="../css/header.css" />
   <link rel="stylesheet" href="../css/footer.css" />
   <style>
+    .policy-hero {
+      background: var(--primary-color);
+      color: #fff;
+      text-align: center;
+      padding: 4.5rem 1.5rem;
+    }
+    .policy-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
     .policy-wrapper {
       padding: 2rem;
       max-width: 900px;
@@ -24,10 +36,14 @@
 <!-- HEADER -->
 <div id="navbar-placeholder"></div>
 
-<main>
-  <div style="height:110px;background:var(--primary-color)"></div>
+  <main>
+  <section class="policy-hero">
+    <div class="container">
+      <h1>Terms of Use</h1>
+    </div>
+  </section>
+
   <div class="policy-wrapper">
-    <h1>Terms of Use</h1>
 
     <h2>Acceptance of Terms</h2>
     <p>By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.</p>

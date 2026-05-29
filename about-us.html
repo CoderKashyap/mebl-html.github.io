@@ -6,14 +6,332 @@
   <title>About Us – Mount Everest Breweries Limited</title>
   <meta name="description" content="From our first brew in 1999 to becoming the No.1 brewery in Madhya Pradesh, the MEBL journey is filled with passion, innovation, and bold moves." />
   <link rel="stylesheet" href="css/global.css" />
-  <link rel="stylesheet" href="css/header.css" />
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/about.css" />
+  <style>
+/* ============================================================
+   MEBL – Header / Navigation (inline for about-us.html)
+   ============================================================ */
+
+#navbar {
+  position: fixed;
+  width: 100%;
+  padding: 0 20px;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  height: 110px;
+  font-size: 1rem;
+  transition: all 0.5s ease-in-out;
+  top: 0;
+
+  display: flex;
+  align-items: normal;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#navbar.transparent {
+  background-color: transparent;
+  backdrop-filter: none;
+}
+
+#navbar.hide {
+  top: -120px;
+}
+
+.nav-inner {
+  max-width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  color: white;
+  height: 100%;
+  margin: 0 auto;
+  font-family: var(--font-main);
+  font-weight: 600;
+}
+
+/* -- Logo ------------------------------------------ */
+.nav-logo {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.nav-logo img {
+  height: 80px;
+}
+
+/* -- Nav menu -------------------------------------- */
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-half {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 40px;
+}
+
+.nav-half-right {
+  justify-content: flex-end;
+}
+
+.nav-link {
+  color: white;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--secondary-color);
+}
+
+/* -- Dropdowns (Meet Our Brews + Media) ----------- */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: var(--font-main);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-dropdown-btn::after {
+  content: '▾';
+  font-size: 0.7rem;
+  opacity: 0.75;
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown:hover .nav-dropdown-btn::after {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-btn:hover {
+  color: var(--secondary-color);
+}
+
+/* "All Media" link is shown only inside the mobile popup */
+.nav-media-all {
+  display: none;
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10, 10, 10, 0.96);
+  backdrop-filter: blur(14px);
+  min-width: 200px;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.25rem 1.5rem;
+  list-style: none;
+  z-index: 100;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown-menu.open {
+  display: flex;
+}
+
+.nav-dropdown-menu li a {
+  color: white;
+  font-size: 0.95rem;
+  display: block;
+}
+
+.nav-dropdown-menu li a:hover {
+  color: var(--secondary-color);
+}
+
+/* -- Hamburger (mobile) ----------------------------- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  margin-left: auto;
+  z-index: 10;
+}
+
+.hamburger .bar {
+  width: 22px;
+  height: 2px;
+  background: white;
+  transition: 0.3s ease-in-out;
+  display: block;
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* -- Mobile ---------------------------------------- */
+@media screen and (max-width: 780px) {
+  .nav-logo {
+    left: 1.5rem;
+    transform: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    flex-direction: column;
+    gap: 0;
+    left: 0;
+    top: -420px;
+    width: 100%;
+    visibility: hidden;
+    transition: 0.5s ease-in-out;
+    text-align: center;
+  }
+
+  .nav-menu.active {
+    top: 108px;
+    visibility: visible;
+  }
+
+  .nav-half {
+    flex-direction: column;
+    gap: 0;
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  .nav-half li {
+    margin: 14px 0;
+  }
+
+  /* menu is moved to body via JS — lives outside the navbar stacking context */
+  .nav-dropdown-menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(12px);
+    min-width: 260px;
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    text-align: center;
+    z-index: 2000;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .nav-dropdown-menu.open {
+    display: flex;
+  }
+
+  .nav-dropdown-menu li {
+    margin: 0;
+  }
+
+  .nav-dropdown-menu li a {
+    font-size: 1.1rem;
+  }
+
+  .nav-dropdown-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1500;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-dropdown-overlay.open {
+    display: block;
+  }
+
+  /* show "All Media" link inside the mobile popup */
+  .nav-media-all {
+    display: block;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding-bottom: 1rem;
+    margin-bottom: 0.25rem;
+  }
+}
+  </style>
 </head>
 <body>
 
 <!-- ═══════════════════════════════════════════════════════════ HEADER -->
-<div id="navbar-placeholder"></div>
+<div id="navbar" class="transparent">
+  <header>
+    <nav class="nav-inner">
+      <ul class="nav-menu">
+        <div class="nav-half">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-dropdown">
+            <button class="nav-dropdown-btn">Meet Our Brews</button>
+            <ul class="nav-dropdown-menu">
+              <li><a href="products/stok.html">Stok</a></li>
+              <li><a href="products/lemount.html">Lemount</a></li>
+              <li><a href="products/mount-6000.html">Mount's 6000</a></li>
+              <li><a href="products/dabang.html">Dabang</a></li>
+            </ul>
+          </li>
+          <li class="nav-dropdown nav-media-dropdown">
+            <button class="nav-dropdown-btn" data-href="media.html">Media</button>
+            <ul class="nav-dropdown-menu">
+              <li class="nav-media-all"><a href="media.html">All Media</a></li>
+              <li><a href="press-release.html">Press Release</a></li>
+              <li><a href="events-awards.html">Events / Awards</a></li>
+              <li><a href="stories.html">Stories</a></li>
+            </ul>
+          </li>
+        </div>
+        <div class="nav-half nav-half-right">
+          <li><a href="career.html" class="nav-link">Career</a></li>
+          <li><a href="investor-relations.html" class="nav-link">Investor Relations</a></li>
+          <li><a href="about-us.html" class="nav-link">About us</a></li>
+        </div>
+      </ul>
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="img/logo.webp" alt="Mount Everest Breweries logo" />
+        </a>
+      </div>
+      <div class="hamburger" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+</div>
 
 <main>
 
@@ -175,9 +493,8 @@
 <!-- ═══════════════════════════════════════════════════════════ FOOTER -->
 <div id="footer-placeholder"></div>
 
-<script src="js/components.js" data-base=""></script>
-  <script src="js/main.js"></script>
-<script>
+<script src="js/main.js"></script>
+<!-- <script>
 (function () {
   var ITEMS_COUNT = 10;
   var PADDING_AREA = 500;
@@ -241,6 +558,30 @@
     initHorizontalTimeline();
   }
 })();
-</script>
+</script> -->
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

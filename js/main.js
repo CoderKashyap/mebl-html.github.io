@@ -60,7 +60,7 @@
 
   /* ── Navbar ──────────────────────────────────────────────── */
   function initNavbar() {
-    const navbar = document.getElementById('navbar');
+    const navbar = document.getElementById('navbar'); 
     if (!navbar) return;
 
     const startsTransparent = navbar.classList.contains('transparent');
